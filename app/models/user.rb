@@ -18,7 +18,7 @@
 
 class User < ActiveRecord::Base
 
- ROLES = %w[admin normal]
+ ROLES = %i[admin normal]
 
 has_many :projetos
 has_many :clientes

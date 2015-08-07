@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150805151631) do
     t.integer  "projeto_id"
     t.integer  "local_id"
     t.integer  "task_id"
-    t.float  "time"
+    t.integer  "time"
     t.string   "comment"
     t.boolean  "isdoe"
     t.integer  "user_id"

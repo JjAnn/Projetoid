@@ -33,13 +33,19 @@
                             <span class="title">Relatórios Finalizados </span>
                             
                         </a></li>
+
+  <li id="relatogridcond" ><a>
+                            <span class="mif-apps icon"></span>
+                            <span class="title">Condicional  </span>
+                            
+                        </a></li>
                        
                  
                     </ul>
                 </div>
 
  <!-- Fim de Barra Lateral -->
-
+    
 
  <!-- Conteudo da Página -->
 <div id="relatoinsert"> </div>
@@ -70,26 +76,27 @@
                         </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody>   
                            <% @relatos1.each do |relato| %>
                            
-                        <tr>
-                           
+                        <tr>  <% if can? :read, relato %>
+                      
                             <td><%= relato.id %></td>
                             <td><%= relato.cliente.name %></td>
  <td><%= relato.projeto.name %></td>
  <td><%= relato.local.logra %></td>
     <td><%= relato.time %></td>
       <td><%= relato.comment %></td>
-
-           <td> <%= link_to 'Gerenciar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %> </td>
+ 
+           <td> <%= link_to 'Gerenciar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %> </td>  <% end %>
                             
-                          
+                    
                            
                         </tr>
                         
-                        <% end %>
+                        <% end %>  
                         </tbody>
+
                     </table>
                     
                 </div>
@@ -105,6 +112,60 @@
 
 
  <!-- FIm Reg Atividade -->
+
+<!-- Finalizado Relatorio Inicio -->
+
+  <div class="cell auto-size padding20 bg-white" id="relatocond">
+                    <h1 class="text-light"> Painel de Condicionais </h1>
+                    <hr class="thin bg-grayLighter">
+                    <br />
+                    <br />
+                    <br /> 
+                   
+         
+                    <hr class="thin bg-grayLighter" > 
+
+                   
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+
+                        <thead>
+                        <tr>
+                            
+                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
+                       <td class="sortable-column" style="width: 45px">Cliente:</td>
+                            <td class="sortable-column" style="width: 45px">Projeto:</td>
+                            <td style="width: 45px">Local:</td>
+                                  <td style="width: 45px">Tempo:</td>
+                                   <td style="width: 45px">Observação:</td>
+<td style="width: 45px">Ações:</td>
+                                     
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                           <% @conditionals.each do |condi| %>
+                           
+                        <tr>
+                           
+                            <td><%= condi.id %></td>
+                            <td><%= condi.projeto.name %></td>
+    <td><%= condi.time %></td>
+      <td><%= condi.why %></td>
+<td><%= condi.data %></td>
+           <td> <%= link_to 'Alterar', edit_conditional_path(conditional) , class: 'm-btn green icn-only' %>   </td>
+                            
+                          
+                           
+                        </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    
+         
+    </div>
+
+
 
 
  <!-- Finalizado Relatorio Inicio -->
@@ -131,6 +192,7 @@
                             <td style="width: 45px">Local:</td>
                                   <td style="width: 45px">Tempo:</td>
                                    <td style="width: 45px">Observação:</td>
+<td style="width: 45px">Ações:</td>
                                      
                         </tr>
                         </thead>
@@ -156,18 +218,81 @@
                         </tbody>
                     </table>
                     
-                </div>
-            </div>
-        </div>
+          
     </div>
 
 
  <!-- FIm Rel Finalizado -->
 
 
+<!-- Condicional --> 
+
+<div id="cadcon">
+
+<div class="cadcon-form padding20 block-shadow">
+<span class="m-btn red-stripe">Cadastrar Condicional</span>
+            <hr class="thin"/>
+            <br />
+<%= form_for(@conditional) do |f| %>
+<div class="input-control text full-size" data-role="input">
+    <label for="user_login">Projeto: </label>
+    <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, include_blank: true, class: 'form-control' %>
+  </div>
+<br />
+<br />
+
+
+<label class="input-control checkbox"> Translado: </label>
+    <%= f.check_box :transla %> 
+<label class="input-control checkbox"> Intervalo: </label>
+    <%= f.check_box :interval %> 
+
+<br />
+<br />
+  <div class="input-control text full-size" data-role="input">
+     <label for="user_login">Descrição:</label> 
+<%= f.text_area(:why, :required => true, :size => 2) %>
+  </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+   <label for="user_login">Data:</label>
+   <%= f.date_select :data, :required => true, class: 'input-control text' %>
+
+ 
+<br />
+<br />
+<label for="user_login">Duração:</label>
+    <%= f.time_select(:time) %>
+<br />
+<br />
+<br />
+
+  <div class="input-control text" data-role="input">
+    <label for="user_login">Distancia em KM: </label>
+    <%= f.number_field :km %>
+  </div>
 
 
 
+     
+
+<br />
+<br />
+<br />
+<br />
+  
+
+  <div class="actions">
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+  </div>
+<% end %>
+</div>
+<!-- Fim condicional -->
 
 
 
@@ -216,6 +341,11 @@
 <br />
 <br />
 <br />
+
+
+
+
+
 
 <div class="actions">
 

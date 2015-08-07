@@ -1,5 +1,7 @@
 class Relato < ActiveRecord::Base
-geocoded_by :ip_address
+geocoded_by :ip_address,
+  :latitude => :latitude, :longitude => :longitude
+after_validation :geocode
 belongs_to :cliente
 belongs_to :projeto
 belongs_to :local

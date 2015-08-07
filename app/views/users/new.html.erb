@@ -16,11 +16,7 @@
                             <span class="title">Listar Consultores</span>
                             
                         </a></li>
-                        <li id="calo" ><a >
-                            <span class="mif-vpn-publ icon"></span>
-                            <span class="title">Locais de Atendimento</span>
-                            
-                        </a></li>
+                      
                  
                     </ul>
                 </div>
@@ -29,8 +25,9 @@
 
  <!-- Inicio Main BG  Plus Cad user -->
 
-<div id="inserthereconsul"> </div>
+
   <div class="cell auto-size padding20 bg-white" id="cli">
+<div id="inserthereconsul"> </div>
                     <h1 class="text-light"> Painel de Consultores </h1>
                     <hr class="thin bg-grayLighter">
                     <br />
@@ -98,7 +95,7 @@
 
     <div class="cad-form padding20 block-shadow" id="cadconsultor">
     
-         <span class="m-btn red-stripe">Cadastro de Consultor</span>
+         <span class="m-btn red-stripe">Cadastro de Consultor</span> <button style="float: right;" id="fecharcadform" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a>
             <hr class="thin"/>
 <%= form_for @user do |f| %>
             <br />

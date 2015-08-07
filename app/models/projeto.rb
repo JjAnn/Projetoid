@@ -8,5 +8,5 @@ belongs_to :page
 has_many :relatos
 has_many :reltasks
 belongs_to :reltask
-accepts_nested_attributes_for :tasks, :allow_destroy => true
+accepts_nested_attributes_for :tasks,  allow_destroy: true
 end

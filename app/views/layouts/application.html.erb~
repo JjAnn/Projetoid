@@ -20,32 +20,26 @@
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu"><% if can? :read, @Application %> 
             <li><%= link_to 'Cliente', clienta_path %></li>
-            <li><%= link_to 'Projeto', projetopo_path %></li>
-            <li><%= link_to 'Relatorio', relatoss_path %></li>
+            <li><%= link_to 'Projeto', projetopo_path %></li>         <% end %>  <% if can? :manage, Relato %>       
+            <li><%= link_to 'Relatorio', relatoss_path %></li>         <% end %><% if can? :manage, @Application %> 
             <li><%= link_to 'Consultor', sign_up_path %></li>
             <% end %>
            
         </ul>
 
-        <div class="app-bar-element place-right">
-            <span class="dropdown-toggle"><span class="mif-cog"></span> <%= current_user.name %></span>
+        <div class="app-bar-element place-right">      <% if current_user %>
+            <span class="dropdown-toggle"><span class="mif-cog"></span> <%= current_user.name %></span> 
             <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow" data-role="dropdown" data-no-close="true" style="width: 220px">
                
                 <ul class="unstyled-list">
                     <li><a href="" class="fg-white fg-hover-yellow">Perfil</a></li>
-                    <li><%= link_to 'Sair', log_out_path, method: :delete, class: 'fg-white fg-hover-yellow' %></li>
-                </ul>
+                    <li><%= link_to 'Sair', log_out_path, method: :delete %></li>
+                </ul><% end %>
             </div>
         </div>
     </div>
     <!-- Fim do Header -->
 
-<div>
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
 
   <div >
     <%= yield %>

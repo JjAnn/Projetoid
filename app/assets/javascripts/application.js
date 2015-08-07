@@ -26,6 +26,13 @@ $(document).ready(function() {
  $(".cal-form").hide()
 });
 
+ $(function(){
+ $("#cadcon").hide()
+});
+   $(function(){
+ $("#esconderrelato").hide()
+});
+
     $(function(){
  $("#editproj1").hide()
 });
@@ -36,6 +43,10 @@ $(document).ready(function() {
 
  $(function(){
  $("#relatogeralfi").hide()
+});
+
+$(function(){
+ $("#relatocond").hide()
 });
 
 
@@ -192,21 +203,50 @@ $(function()
     $("#relatogeral").hide()
 
 });
+
+$(function()
+{
+   $("#relatocond").hide()
+
+});
 $(function()
 {
     $("#relatogeralfi").show()
 
 });
 
- $(function(){
- $("#cadreltask").hide()
-   });
-
- $(function(){
+$(function(){
 $("#relatoinsert").before($("#relatogeralfi"))
 });
 
          });
+
+$("#relatogridcond").click( function() {
+
+$(function()
+{
+    $("#relatogeral").hide()
+
+});
+$(function()
+{
+    $("#relatogeralfi").hide()
+
+});
+
+$(function()
+{
+    $("#relatocond").show()
+
+});  
+$(function(){
+$("#relatoinsert").before($("#relatocond"))
+});
+
+         });
+
+
+
 
 $("#addativid").click( function() {
 
@@ -243,12 +283,20 @@ $(function()
 });
 
  $(function(){
-$("#relatoinsertconsul").before($("#cadconsultor"))
+$("#inserthereconsul").before($("#cadconsultor"))
 });
 
 
 
          });
+
+$("#fecharcadform").click( function() {
+
+$(function()
+{
+    $("#cadconsultor").hide()
+
+}); });
 
 
 
@@ -258,6 +306,11 @@ $("#relatogrid").click( function() {
 $(function()
 {
     $("#relatogeralfi").hide()
+
+});
+$(function()
+{
+ $("#relatocond").hide()
 
 });
 $(function()
@@ -374,6 +427,18 @@ $(function(){
                 "transition": ".5s"
             });
         });
+
+$(function(){
+            var form1 = $(".cadcon-form");
+
+            form1.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
 $(function()
 {
     $(".carl-form").show()
@@ -383,9 +448,6 @@ $(function(){
 $("#addrel").before($(".carl-form"))});
 
          });
-
-
-
 
 $("#addproj").click( function() {
 
@@ -409,6 +471,15 @@ $(function(){
 $("#addproj").before($(".cap-form"))});
 
          });
+
+$("#editarrelato").click( function() { 
+$(function()
+{
+    $("#esconderrelato").show()
+});
+});
+
+
 
 
 $("#calo").click( function() {  

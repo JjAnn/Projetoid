@@ -34,11 +34,15 @@ class RelatosController < ApplicationController
 @relatos2 = Relato.where(isdoe: true)
 @reltask = Reltask.new
 @projeto = Projeto.where(projeto_id: :id)
+     @conditional = Conditional.new
+ @conditionals = Conditional.all
   end
 
   # GET /relatos/1/edit
   def edit
 @reltask = Reltask.new
+@relato = Relato.find(params[:id])
+@reltask1 = Reltask.all
  @relatos1 = Relato.where(isdoe: false)
 @relatos2 = Relato.where(isdoe: true)
 @projeto1 = Relato.find(params[:id])
@@ -93,6 +97,6 @@ class RelatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relato_params
-      params.require(:relato).permit(:cliente_id, :projeto_id, :local_id, :task_id, :time, :comment, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal, :reltasks_attributes => [:projeto_id, :reltask_id, :task_id, :tempo, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal])
+      params.require(:relato).permit(:id, :cliente_id, :projeto_id, :local_id, :task_id, :time, :comment, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal, :reltasks_attributes => [:projeto_id, :reltask_id, :task_id, :relato_id, :_destroy, :comentario, :id, :tempo, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal])
     end
 end

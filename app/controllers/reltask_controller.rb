@@ -52,7 +52,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reltask_params
-      params.require(:reltask).permit(:projeto_id, :reltask_id, :task_id, :tempo, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal)
+      params.require(:reltask).permit(:projeto_id, :reltask_id, :task_id, :relato_id, :_destroy, :comentario, :id, :tempo, :isdoe, :user_id, :latitude, :longitude, :ip_address, :getlocal)
     end
 
 end

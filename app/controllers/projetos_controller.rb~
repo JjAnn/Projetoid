@@ -27,7 +27,7 @@ class ProjetosController < ApplicationController
   def edit
   @projetos = Projeto.all
   @projeto1 = Projeto.find(params[:id])
-
+  @relatos = Relato.where(projeto_id: @projeto1.id)
 
   end
 
@@ -51,10 +51,9 @@ class ProjetosController < ApplicationController
   # PATCH/PUT /projetos/1
   # PATCH/PUT /projetos/1.json
   def update
-@task = Task.find(params[:id])
     respond_to do |format|
       if @projeto.update(projeto_params)
-        format.html { redirect_to projetopo_path, notice: 'Projeto was successfully updated.' }
+        format.html { redirect_to edit_projeto_path, notice: 'Projeto was successfully updated.' }
         format.json { render :show, status: :ok, location: @projeto }
       else
         format.html { render :edit }
@@ -68,10 +67,13 @@ class ProjetosController < ApplicationController
   def destroy
     @projeto.destroy
     respond_to do |format|
-      format.html { redirect_to projetos_url, notice: 'Projeto was successfully destroyed.' }
+      format.html { redirect_to projetopo_path, notice: 'Projeto was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

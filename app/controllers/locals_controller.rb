@@ -42,7 +42,7 @@ class LocalsController < ApplicationController
   def update
     respond_to do |format|
       if @local.update(local_params)
-        format.html { redirect_to @local, notice: 'Local was successfully updated.' }
+        format.html { redirect_to clienta_path, notice: 'Local was successfully updated.' }
         format.json { render :show, status: :ok, location: @local }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class LocalsController < ApplicationController
   def destroy
     @local.destroy
     respond_to do |format|
-      format.html { redirect_to locals_url, notice: 'Local was successfully destroyed.' }
+      format.html { redirect_to clienta_path, notice: 'Local was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

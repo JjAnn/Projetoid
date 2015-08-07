@@ -27,7 +27,7 @@ class ProjetosController < ApplicationController
   def edit
   @projetos = Projeto.all
   @projeto1 = Projeto.find(params[:id])
-
+  @relatos = Relato.where(projeto_id: @projeto1.id)
 
   end
 
@@ -53,7 +53,7 @@ class ProjetosController < ApplicationController
   def update
     respond_to do |format|
       if @projeto.update(projeto_params)
-        format.html { redirect_to projetopo_path, notice: 'Projeto was successfully updated.' }
+        format.html { redirect_to edit_projeto_path, notice: 'Projeto was successfully updated.' }
         format.json { render :show, status: :ok, location: @projeto }
       else
         format.html { render :edit }
@@ -67,10 +67,13 @@ class ProjetosController < ApplicationController
   def destroy
     @projeto.destroy
     respond_to do |format|
-      format.html { redirect_to projetos_url, notice: 'Projeto was successfully destroyed.' }
+      format.html { redirect_to projetopo_path, notice: 'Projeto was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -80,7 +83,7 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:id, :cliente_id, :name, :descr, :typo, :user_id, :dateini, :datefin, :status, :tasks_attributes => [:projeto_id, :raiz, :descr, :tempo, :typo, :id,  :parent_id])
+      params.require(:projeto).permit(:id, :cliente_id, :name, :descr, :typo, :user_id, :dateini, :datefin, :_destroy, :status, :tasks_attributes => [:projeto_id, :raiz, :descr, :tempo, :typo, :id,  :parent_id, :_destroy])
     end
 
 end

@@ -29,8 +29,9 @@
 
  <!-- Inicio Main BG  Plus Cad user -->
 
-<div id="inserthereconsul"> </div>
+
   <div class="cell auto-size padding20 bg-white" id="cli">
+<div id="inserthereconsul"> </div>
                     <h1 class="text-light"> Painel de Consultores </h1>
                     <hr class="thin bg-grayLighter">
                     <br />
@@ -65,7 +66,7 @@
                             <td><%= user.name %></td>
  <td><%= user.email %></td>
  <td><%= user.celular %></td>
- <td><%= user.id.count %></td>
+ <td><%= %></td>
  <td><%= user_report %></td>
  <td><%= user.role %></td>
   <td> <%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
@@ -98,7 +99,7 @@
 
     <div class="cad-form padding20 block-shadow" id="cadconsultor">
     
-         <span class="m-btn red-stripe">Cadastro de Consultor</span>
+         <span class="m-btn red-stripe">Cadastro de Consultor</span> <button style="float: right;" id="fecharcadform" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a>
             <hr class="thin"/>
 <%= form_for @user do |f| %>
             <br />

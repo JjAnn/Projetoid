@@ -27,7 +27,8 @@ get '/condicional', to: 'conditionals#new', as: :condit
 get '/local', to: 'locals#new', as: :loca
 
   get '/log_in', to: 'sessions#new', as: :log_in
-  delete '/log_out', to: 'sessions#destroy', as: :log_out
+  get '/log_out', to: 'sessions#destroy', as: :log_out
+      
 
 
   root to: 'sessions#new'

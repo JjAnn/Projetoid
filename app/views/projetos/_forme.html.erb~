@@ -49,25 +49,18 @@
 
 
  <div id="cadprojedit" class="cadprojedit-form padding20 block-shadow">
-<span class="m-btn green-stripe">Gerenciar Projeto</span><a href="/projeto/new"><button style="float: right;" id="fecharcap" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a>
+<span class="m-btn green-stripe">Gerenciar Projeto</span><a href="/projetos/new"><button style="float: right;" id="fecharcap" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a>
             <hr class="thin"/>
             <br />
 
 <table >
-
-                        <thead>
-                        <tr>
-                            <td>Atividades do Projeto</td>
-<td>ID - Descrição - Identificador</td>
- 
-                         	
-			      
-                             
-                        </tr>
-                        </thead>
+<thead> 
+<td> COD - Descrição - ID </td>
+</thead>
+                       
                         <tbody>
                                    
-                          <% nested_set_options(Task.where(projeto_id: @projeto1.id)) { |i| "#{'–' * i.level} #{i.id} #{i.descr} #{i.raiz}" }.each do |raiz, id| %>
+                          <% nested_set_options(Task.where(projeto_id: @projeto1.id)) { |i|  " #{'–' * i.level}  #{i.raiz}  #{i.descr} #{i.id} " }.each do |raiz, id| %>
                         <tr>
                          
                            	<td><%= raiz %> </td>
@@ -78,47 +71,36 @@
                         <% end %>
                         </tbody>
                     </table>
+
+<br />
+<br />
 <%= nested_form_for @projeto do |f| %>
+<div >
 
-<div style="float: right;" width="20%" >
-<table >
-
-                        <thead>
-                        <tr>
-                            <td>Descrição</td>
-                         	     <td>Descrição</td>
-     <td>Descrição</td>
-
-     <td>Descrição</td>
-     <td>Descrição</td>
-			      
-                             
-                        </tr>
-                        </thead>
-<br>
-                        <tbody>  
 
 
 <%= f.fields_for :tasks do |ff| %>
    
 
-<td>
-<%= hidden_field "projeto[task_attributes][id]", @task.id %>
- <%=  ff.number_field :raiz, :placeholder => "Identificador" %></div></td> <td> 
- <%=  ff.text_field :descr, :placeholder => "Descrição" %> </div> </td><td> 
-   <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> </div> </td><td>
+
+ <%=  ff.number_field :raiz, :placeholder => "Identificador" %> 
+ <%=  ff.text_field :descr, :placeholder => "Descrição" %>   
+   <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> 
    <label for="user_login">Tipo de Atividade:</label>
- <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></div></td><td> 
-<%= ff.number_field :parent_id , :placeholder => "ID Pertecente"  %>
-</div></td><%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
+ <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
+<%= ff.number_field :parent_id , :placeholder => "ID Pai"  %>
+
+<%= ff.link_to_remove "X" ,class: 'm-btn red icn-only' %>
+<%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
 			            
- 			</tr>
+ 			
                         <% end %>
-                        </tbody>
-                    </table>
+                
 </div> 
 
  <%= f.link_to_add "Adicionar Atividade", :tasks, class: 'button success' %> <br>
+<br />
+
 
 <div id="editproj1">
     		<div class="input-control text full-size" data-role="input">
