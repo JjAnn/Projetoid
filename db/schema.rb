@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 201507271723135) do
     t.boolean  "transla",    limit: 1
     t.boolean  "interval",   limit: 1
     t.integer  "km",         limit: 4
-    t.date     "data"
+    t.datetime     "data" null: false
     t.string   "why",        limit: 255
     t.string   "time",       limit: 255
     t.integer  "projeto_id", limit: 4
