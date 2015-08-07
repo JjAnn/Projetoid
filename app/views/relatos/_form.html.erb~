@@ -228,7 +228,7 @@
 <!-- Condicional --> 
 
 <div class="cadcon-form padding20 block-shadow">
-<span class="m-btn red-stripe">Cadastrar Condicional</span>
+<span class="m-btn red-stripe">Cadastrar Condicional</span> <button style="float: right;" id="fecharcond" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
             <hr class="thin"/>
             <br />
 <%= form_for(@conditional) do |f| %>
@@ -275,7 +275,8 @@
     <%= f.number_field :km %>
   </div>
 
-
+<%= f.hidden_field(:ip_address, :value => request.remote_ip)  %>
+<%= f.hidden_field(:getlocal, :value => request.location)  %>
 
      
 
