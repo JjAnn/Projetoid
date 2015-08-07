@@ -7,7 +7,8 @@ gem 'rails', '4.2.2'
 gem "cocoon"
 
 gem 'cancancan' 
-
+gem 'yaml_db'
+gem 'mysql2'
 
 gem 'nested_form'
 

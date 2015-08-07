@@ -7,6 +7,7 @@ gem 'rails', '4.2.2'
 gem "cocoon"
 
 gem 'cancancan' 
+gem 'yaml_db'
 
 
 gem 'nested_form'
@@ -57,6 +58,8 @@ gem 'sorcery'
 
 gem 'geokit-rails'
 gem 'geocoder'
+
+gem 'best_in_place', '~> 3.0.1'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'

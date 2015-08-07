@@ -11,152 +11,163 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805151631) do
+ActiveRecord::Schema.define(version: 201507271723135) do
 
   create_table "clientes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "telefone"
-    t.string   "celular"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.string   "telefone",   limit: 255
+    t.string   "celular",    limit: 255
+    t.string   "email",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "conditionals", force: :cascade do |t|
-    t.boolean  "transla"
-    t.boolean  "interval"
-    t.integer  "km"
+    t.boolean  "transla",    limit: 1
+    t.boolean  "interval",   limit: 1
+    t.integer  "km",         limit: 4
     t.date     "data"
-    t.string   "why"
-    t.string   "time"
-    t.integer  "projeto_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "why",        limit: 255
+    t.string   "time",       limit: 255
+    t.integer  "projeto_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "conditionals", ["projeto_id"], name: "index_conditionals_on_projeto_id"
+  add_index "conditionals", ["projeto_id"], name: "index_conditionals_on_projeto_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
+    t.integer  "priority",   limit: 4,     default: 0, null: false
+    t.integer  "attempts",   limit: 4,     default: 0, null: false
+    t.text     "handler",    limit: 65535,             null: false
+    t.text     "last_error", limit: 65535
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
+    t.string   "locked_by",  limit: 255
+    t.string   "queue",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "locals", force: :cascade do |t|
-    t.integer  "cliente_id"
-    t.string   "logra"
-    t.string   "cep"
-    t.string   "uf"
-    t.string   "city"
-    t.integer  "km"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "cliente_id", limit: 4
+    t.string   "logra",      limit: 255
+    t.string   "cep",        limit: 255
+    t.string   "uf",         limit: 255
+    t.string   "city",       limit: 255
+    t.integer  "km",         limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "locals", ["cliente_id"], name: "index_locals_on_cliente_id"
+  add_index "locals", ["cliente_id"], name: "index_locals_on_cliente_id", using: :btree
 
   create_table "projetos", force: :cascade do |t|
-    t.integer  "cliente_id"
-    t.string   "name"
-    t.string   "descr"
-    t.string   "typo"
-    t.integer  "user_id"
+    t.integer  "cliente_id", limit: 4
+    t.string   "name",       limit: 255
+    t.string   "descr",      limit: 255
+    t.string   "typo",       limit: 255
+    t.integer  "user_id",    limit: 4
     t.date     "dateini"
     t.date     "datefin"
-    t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "relatos", force: :cascade do |t|
-    t.integer  "cliente_id"
-    t.integer  "projeto_id"
-    t.integer  "local_id"
-    t.integer  "task_id"
-    t.float  "time"
-    t.string   "comment"
-    t.boolean  "isdoe"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "ip_address"
-    t.string   "getlocal"
+    t.integer  "cliente_id", limit: 4
+    t.integer  "projeto_id", limit: 4
+    t.integer  "local_id",   limit: 4
+    t.integer  "task_id",    limit: 4
+    t.float    "time",       limit: 24
+    t.string   "comment",    limit: 255
+    t.boolean  "isdoe",      limit: 1
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "ip_address", limit: 255
+    t.string   "getlocal",   limit: 255
   end
 
-  add_index "relatos", ["cliente_id"], name: "index_relatos_on_cliente_id"
-  add_index "relatos", ["local_id"], name: "index_relatos_on_local_id"
-  add_index "relatos", ["projeto_id"], name: "index_relatos_on_projeto_id"
-  add_index "relatos", ["task_id"], name: "index_relatos_on_task_id"
-  add_index "relatos", ["user_id"], name: "index_relatos_on_user_id"
+  add_index "relatos", ["cliente_id"], name: "index_relatos_on_cliente_id", using: :btree
+  add_index "relatos", ["local_id"], name: "index_relatos_on_local_id", using: :btree
+  add_index "relatos", ["projeto_id"], name: "index_relatos_on_projeto_id", using: :btree
+  add_index "relatos", ["task_id"], name: "index_relatos_on_task_id", using: :btree
+  add_index "relatos", ["user_id"], name: "index_relatos_on_user_id", using: :btree
 
   create_table "reltasks", force: :cascade do |t|
-    t.integer  "task_id"
-    t.integer  "relato_id"
+    t.integer  "task_id",    limit: 4
+    t.integer  "relato_id",  limit: 4
     t.time     "tempo"
-    t.boolean  "isdoe"
-    t.integer  "user_id"
-    t.integer  "projeto_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "ip_address"
-    t.string   "getlocal"
-    t.float    "longitude"
-    t.float    "latitude"
-    t.string   "comentario"
+    t.boolean  "isdoe",      limit: 1
+    t.integer  "user_id",    limit: 4
+    t.integer  "projeto_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "ip_address", limit: 255
+    t.string   "getlocal",   limit: 255
+    t.float    "longitude",  limit: 24
+    t.float    "latitude",   limit: 24
+    t.string   "comentario", limit: 255
   end
 
-  add_index "reltasks", ["projeto_id"], name: "index_reltasks_on_projeto_id"
-  add_index "reltasks", ["relato_id"], name: "index_reltasks_on_relato_id"
-  add_index "reltasks", ["task_id"], name: "index_reltasks_on_task_id"
-  add_index "reltasks", ["user_id"], name: "index_reltasks_on_user_id"
+  add_index "reltasks", ["projeto_id"], name: "index_reltasks_on_projeto_id", using: :btree
+  add_index "reltasks", ["relato_id"], name: "index_reltasks_on_relato_id", using: :btree
+  add_index "reltasks", ["task_id"], name: "index_reltasks_on_task_id", using: :btree
+  add_index "reltasks", ["user_id"], name: "index_reltasks_on_user_id", using: :btree
 
-# Could not dump table "tasks" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "projeto_id", limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "parent_id",  limit: 4
+    t.integer  "lft",        limit: 4
+    t.integer  "rgt",        limit: 4
+    t.string   "descr",      limit: 255
+    t.integer  "raiz",       limit: 4
+    t.float    "tempo",      limit: 24
+    t.string   "typo",       limit: 255
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                                       null: false
-    t.string   "crypted_password"
-    t.string   "salt"
-    t.string   "role"
-    t.string   "name"
-    t.string   "classe"
-    t.string   "celular"
+    t.string   "email",                           limit: 255,             null: false
+    t.string   "crypted_password",                limit: 255
+    t.string   "salt",                            limit: 255
+    t.string   "role",                            limit: 255
+    t.string   "name",                            limit: 255
+    t.string   "classe",                          limit: 255
+    t.string   "celular",                         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_me_token"
+    t.string   "remember_me_token",               limit: 255
     t.datetime "remember_me_token_expires_at"
-    t.integer  "failed_logins_count",             default: 0
+    t.integer  "failed_logins_count",             limit: 4,   default: 0
     t.datetime "lock_expires_at"
-    t.string   "unlock_token"
+    t.string   "unlock_token",                    limit: 255
     t.datetime "last_login_at"
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
-    t.string   "last_login_from_ip_address"
-    t.string   "activation_state"
-    t.string   "activation_token"
+    t.string   "last_login_from_ip_address",      limit: 255
+    t.string   "activation_state",                limit: 255
+    t.string   "activation_token",                limit: 255
     t.datetime "activation_token_expires_at"
-    t.string   "reset_password_token"
+    t.string   "reset_password_token",            limit: 255
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
   end
 
-  add_index "users", ["activation_token"], name: "index_users_on_activation_token"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["last_logout_at", "last_activity_at"], name: "index_users_on_last_logout_at_and_last_activity_at"
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token"
+  add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["last_logout_at", "last_activity_at"], name: "index_users_on_last_logout_at_and_last_activity_at", using: :btree
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
 end
