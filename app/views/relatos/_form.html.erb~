@@ -275,11 +275,7 @@
     <%= f.number_field :km %>
   </div>
 
-<%= f.hidden_field(:ip_address, :value => request.remote_ip)  %>
-<%= f.hidden_field(:getlocal, :value => request.location)  %>
- <%= ff.hidden_field :latitude %>
- <%= ff.hidden_field :longitude  %>
-     
+
 
 <br />
 <br />
