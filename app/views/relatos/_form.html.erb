@@ -121,7 +121,7 @@
                     <br />
                     <br />
                     <br /> 
-                   
+                    <button class="button primary" id="addcondit" ><span class="mif-plus"></span> Registrar Condicional </button>
          
                     <hr class="thin bg-grayLighter" > 
 
@@ -227,10 +227,8 @@
 
 <!-- Condicional --> 
 
-<div id="cadcon">
-
 <div class="cadcon-form padding20 block-shadow">
-<span class="m-btn red-stripe">Cadastrar Condicional</span>
+<span class="m-btn red-stripe">Cadastrar Condicional</span> <button style="float: right;" id="fecharcond" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
             <hr class="thin"/>
             <br />
 <%= form_for(@conditional) do |f| %>

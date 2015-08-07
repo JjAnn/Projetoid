@@ -23,12 +23,12 @@
             <div class="row" style="height: 100%">
                 <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
                     <ul class="sidebar">
-                        <li id="relatogrid" class="active" ><a>
+                        <li id="relatogrid" class="active" ><a href="/relatorio#relatogrid">
                             <span class="mif-apps icon"></span>
                             <span class="title">Relatórios em Aberto</span>
                             
                         </a></li>
-  <li id="relatogridfin" ><a>
+  <li id="relatogridfin" ><a href="/relatorio#relatogridfin">
                             <span class="mif-apps icon"></span>
                             <span class="title">Relatórios Finalizados </span>
                             
@@ -77,6 +77,8 @@
 
 <%= ff.link_to_remove "X", class: 'm-btn red icn-only' %>
 <br />
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@projeto1.latitude}%2C#{@projeto1.longitude}" %>
 
 
 

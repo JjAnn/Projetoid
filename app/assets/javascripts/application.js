@@ -27,7 +27,7 @@ $(document).ready(function() {
 });
 
  $(function(){
- $("#cadcon").hide()
+ $(".cadcoc-form").hide()
 });
    $(function(){
  $("#esconderrelato").hide()
@@ -155,9 +155,24 @@ $(function()
     $(".careltask-form").hide()
 });
 
+
 $(function()
 {
     $("#relatogeralfi").show()
+
+});
+         });
+
+$("#fecharcond").click( function() {
+
+$(function()
+{
+    $(".cadcon-form").hide()
+});
+
+$(function()
+{
+    $("#relatocond").show()
 
 });
          });
@@ -203,6 +218,11 @@ $(function()
     $("#relatogeral").hide()
 
 });
+$(function()
+{
+    $(".cadcon-form").hide()
+});
+
 
 $(function()
 {
@@ -313,6 +333,12 @@ $(function()
  $("#relatocond").hide()
 
 });
+
+$(function()
+{
+    $(".cadcon-form").hide()
+});
+
 $(function()
 {
     $("#relatogeral").show()
@@ -348,14 +374,15 @@ $(function()
 });
 
 $(function(){
-$("#add").before($(".cal-form"))});
+$("#add").before($(".cal-form"))
+});
 
          });
 
-$("#addcoc").click( function() {
+$("#addcondit").click( function() {
 
 $(function(){
-            var form1 = $(".cac-form");
+            var form1 = $(".cadcon-form");
 
             form1.css({
                 opacity: 1,
@@ -367,11 +394,12 @@ $(function(){
         });
 $(function()
 {
-    $(".cac-form").show()
+    $(".cadcon-form").show()
 });
 
 $(function(){
-$("#addcoc").before($(".cac-form"))});
+$("#addcondit").before($(".cadcon-form"))
+});
 
          });
 
@@ -428,17 +456,7 @@ $(function(){
             });
         });
 
-$(function(){
-            var form1 = $(".cadcon-form");
 
-            form1.css({
-                opacity: 1,
-                "-webkit-transform": "scale(1)",
-                "transform": "scale(1)",
-                "-webkit-transition": ".5s",
-                "transition": ".5s"
-            });
-        });
 $(function()
 {
     $(".carl-form").show()

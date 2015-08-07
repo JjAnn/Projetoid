@@ -87,8 +87,8 @@
  <td><%= relato.local.logra %></td>
     <td><%= relato.time %></td>
       <td><%= relato.comment %></td>
-   <% end %>
-           <td> <%= link_to 'Gerenciar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %> </td>
+ 
+           <td> <%= link_to 'Gerenciar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %> </td>  <% end %>
                             
                     
                            
@@ -121,7 +121,7 @@
                     <br />
                     <br />
                     <br /> 
-                   
+                    <button class="button primary" id="addcondit" ><span class="mif-plus"></span> Registrar Condicional </button>
          
                     <hr class="thin bg-grayLighter" > 
 
@@ -226,8 +226,6 @@
 
 
 <!-- Condicional --> 
-
-<div id="cadcon">
 
 <div class="cadcon-form padding20 block-shadow">
 <span class="m-btn red-stripe">Cadastrar Condicional</span>

@@ -81,6 +81,7 @@
 
 
 
+
 <% end %>
 
 
@@ -89,6 +90,10 @@
  <%= f.link_to_add "Reportar Atividade", :reltasks, class: 'button success' %> <br>
 <br />
 <br />
+
+
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@projeto1.latitude}%2C#{@projeto1.longitude}" %>
 
 <div id="esconderrelato">
 
