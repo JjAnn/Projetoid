@@ -3,7 +3,6 @@ has_many :clientes
 belongs_to :user
 belongs_to :cliente
 has_many :tasks
-belongs_to :task
 belongs_to :page
 has_many :relatos
 has_many :reltasks
