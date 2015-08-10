@@ -1,13 +1,25 @@
 class WebserviceController < ApplicationController
   soap_service namespace: 'urn:WashOut'
 
-  # Simple case
+  # Teste 
   soap_action "integer_to_string",
               :args   => :integer,
               :return => :string
   def integer_to_string
     render :soap => params[:value].to_s
   end
+
+  soap_action "relatorio",
+	:args => :integer,
+        :return => :string
+  def relatorio
+
+  @busca = Relorio.where(cliente_id: params[:value])
+        render :soap => @busca 
+  end
+
+
+
 
   soap_action "concat",
               :args   => { :a => :string, :b => :string },
