@@ -1,12 +1,10 @@
 class WebserviceController < ApplicationController
   include WashOut::SOAP
-  soap_service namespace: "ProjetoInfinit", wsse_auth_callback: ->(email, password) {
-  return !User.find_by(email: email).authenticate(password).blank?
-}
+  soap_service namespace: "ProjetoInfinit", , wsse_username: "admin@admin.com", wsse_password: "cyber"
 
   # Teste 
   soap_action "integer_to_string",
-              :args   => {:cliente_id => :integer},
+              :args   => {:postal_code => :integer},
               :return => :string
   def integer_to_string
     render :soap => params[:value].to_s

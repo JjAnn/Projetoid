@@ -6,7 +6,7 @@ class WebserviceController < ApplicationController
 
   # Teste 
   soap_action "integer_to_string",
-              :args   => {:cliente_id => :integer},
+              :args   => {:postal_code => :integer},
               :return => :string
   def integer_to_string
     render :soap => params[:value].to_s
@@ -18,7 +18,7 @@ class WebserviceController < ApplicationController
 	       :args => :integer,
                :return => :string
   def relatorio
-  @busca = Relorio.where(cliente_id: params[:value])
+  @busca = Relorio.where(cliente_id: params[:cliente_id])
         render :soap => @busca.id 
   end
 
