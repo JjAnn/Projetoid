@@ -17,7 +17,9 @@ class WebserviceController < ApplicationController
 	       :args => {:cliente_id => :integer},
                :return => :string
   def relatorio
-   render :soap => Relato.where(cliente_id: params[:value]).to_s
+  @busca = Relato.where(cliente_id: params[:value]) 
+
+  render :soap => @busca.id
        
   end
 
