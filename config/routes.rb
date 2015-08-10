@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  wash_out :webservice
+
+
   resources :tasks
   resources :relatos
   resources :conditionals
@@ -73,6 +76,11 @@ get '/local', to: 'locals#new', as: :loca
   #       get 'recent', on: :collection
   #     end
   #   end
+
+
+
+
+
 
 
   # Example resource route with concerns:
