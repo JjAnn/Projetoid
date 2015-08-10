@@ -1,9 +1,12 @@
 class WebserviceController < ApplicationController
-  soap_service namespace: 'urn:WashOut'
+  include WashOut::SOAP
+  soap_service namespace: "ProjetoInfinit", wsse_auth_callback: ->(email, password) {
+  return !User.find_by(email: email).authenticate(password).blank?
+}
 
   # Teste 
   soap_action "integer_to_string",
-              :args   => :integer,
+              :args   => {:cliente_id => :integer},
               :return => :string
   def integer_to_string
     render :soap => params[:value].to_s
@@ -12,11 +15,10 @@ class WebserviceController < ApplicationController
   # Recebe ID Cliente Retorna relato
 
   soap_action "relatorio",
-	:args => :integer,
-        :return => :string
+	       :args => :integer,
+               :return => :string
   def relatorio
-
-  @busca = Relorio.where(cliente_id: params[:value])
+  @busca = Relorio.where(cliente_id: params[:cliente_id])
         render :soap => @busca.id 
   end
 

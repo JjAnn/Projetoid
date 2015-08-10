@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  wash_out :webservice
+
+
   resources :tasks
   resources :relatos
   resources :conditionals
@@ -78,9 +81,7 @@ get '/local', to: 'locals#new', as: :loca
 
 
 
-WashOutSample::Application.routes.draw do
-  wash_out :webservice
-end
+
 
   # Example resource route with concerns:
   #   concern :toggleable do

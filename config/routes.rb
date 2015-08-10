@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
   wash_out :webservice
-
-
   resources :tasks
   resources :relatos
   resources :conditionals
