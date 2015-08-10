@@ -1,4 +1,5 @@
 class WebserviceController < ApplicationController
+  skip_before_action :require_login
   include WashOut::SOAP
   soap_service namespace: "ProjetoInfinit", , wsse_username: "admin@admin.com", wsse_password: "cyber"
 
