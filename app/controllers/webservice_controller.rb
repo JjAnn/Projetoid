@@ -14,12 +14,14 @@ class WebserviceController < ApplicationController
   # Recebe ID Cliente Retorna relato
 
   soap_action "relatorio",
-	       :args => {:cliente_id => :integer},
-               :return => :string
+	       :args => {:a => :integer},
+               :return => :integer
   def relatorio
-  @busca = Relato.where(cliente_id: params[:value]) 
+  @busca = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id)
 
-  render :soap => @busca.to_xml
+
+
+  render :soap =>  @busca
        
   end
 
