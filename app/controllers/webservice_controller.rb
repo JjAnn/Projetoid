@@ -37,7 +37,7 @@ class WebserviceController < ApplicationController
    @tabrelato = Relato.column_names
    @tabreltask = Reltask.column_names
 
-   render :soap => @tabcliente
+   render :soap => ("Cliente" + @tabcliente.to_s + "Local" + @tablocal.to_s + "Projeto" + @tabprojeto.to_s + "Atividade" + @tabtask.to_s + "Relatorio" + @tabrelato.to_s + "Task Report" + @tabreltask.to_s  )
    end
 
   soap_action "concat",

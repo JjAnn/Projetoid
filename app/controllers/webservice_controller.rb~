@@ -26,19 +26,19 @@ class WebserviceController < ApplicationController
   end
 
   soap_action "tabelas",
-     :args => {:a => :string },
+      :args => {:a => :string },
       :return => :string
 
-def tabelas
-@tabcliente = Cliente.column_names
-@tablocal = Local.column_names
-@tabprojeto = Projeto.column_names
-@tabtask = Task.column_names 
-@tabrelato = Relato.column_names
-@tabreltask = Reltask.column_names
+   def tabelas
+   @tabcliente = Cliente.column_names
+   @tablocal = Local.column_names
+   @tabprojeto = Projeto.column_names
+   @tabtask = Task.column_names 
+   @tabrelato = Relato.column_names
+   @tabreltask = Reltask.column_names
 
-render :soap => @tabcliente
-end
+   render :soap => ("Cliente" + @tabcliente.to_s + "Local" + @tablocal.to_s  )
+   end
 
   soap_action "concat",
               :args   => { :a => :string, :b => :string },
