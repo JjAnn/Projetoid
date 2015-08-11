@@ -15,9 +15,9 @@ class WebserviceController < ApplicationController
 
   soap_action "relatorio",
 	       :args => {:a => :integer},
-               :return => :integer
+               :return => :string
   def relatorio
-  @busca = Relato.where(cliente_id: params[:a]).pluck( :projeto_id, :local_id)
+  @busca = Relato.where(cliente_id: params[:a]).pluck(:projeto_id, :local_id)
 
 
 
@@ -25,8 +25,20 @@ class WebserviceController < ApplicationController
        
   end
 
+  soap_action "tabelas",
+      :args => {:a => :string },
+      :return => :string
 
+   def tabelas
+   @tabcliente = Cliente.column_names
+   @tablocal = Local.column_names
+   @tabprojeto = Projeto.column_names
+   @tabtask = Task.column_names 
+   @tabrelato = Relato.column_names
+   @tabreltask = Reltask.column_names
 
+   render :soap => @tabcliente
+   end
 
   soap_action "concat",
               :args   => { :a => :string, :b => :string },
