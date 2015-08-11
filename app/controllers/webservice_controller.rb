@@ -21,7 +21,7 @@ class WebserviceController < ApplicationController
 
 
 
-  render :soap =>  @busca.to_xml
+  render :soap =>  @busca
        
   end
 
