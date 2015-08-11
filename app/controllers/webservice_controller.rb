@@ -17,7 +17,7 @@ class WebserviceController < ApplicationController
 	       :args => {:a => :integer},
                :return => :integer
   def relatorio
-  @busca = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id)
+  @busca = Relato.where(cliente_id: params[:a]).pluck( :projeto_id, :local_id)
 
 
 
