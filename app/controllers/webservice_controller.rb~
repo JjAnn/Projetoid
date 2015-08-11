@@ -19,7 +19,7 @@ class WebserviceController < ApplicationController
   def relatorio
   @busca = Relato.where(cliente_id: params[:value]) 
 
-  render :soap => @busca.id
+  render :soap => Relato.cliente_id
        
   end
 
