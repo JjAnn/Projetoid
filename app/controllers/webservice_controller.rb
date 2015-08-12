@@ -13,17 +13,21 @@ class WebserviceController < ApplicationController
 
   # Recebe ID Cliente Retorna relato
 
+ 
+ 
   soap_action "relatorio",
-	       :args => {:a => :integer},
-               :return => :string
+	       :args => {:a => :int},
+               :return =>  { @relato.to_s => :string [{@reltask.to_s => :string}.to_s]},
+	       :response_tag => "Relatorios"
+               
   def relatorio
   @relato = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id, :ip_address, :getlocal, :user_id)
   @relati = Relato.where(cliente_id: params[:a])
   @reltask = Reltask.where(relato_id: @relati).pluck(:id, :task_id, :relato_id, :ip_address, :getlocal, :user_id)
   render :soap =>  ("Relatorio:" + @relato.to_s + "Atividades Completadas:" + @reltask.to_s )
-       
-  end
+       end
 
+  
   soap_action "tabelas",
       :args => {:a => :string },
       :return => :string
@@ -37,6 +41,7 @@ class WebserviceController < ApplicationController
    @tabreltask = Reltask.column_names
 
    render :soap => ("Cliente" + @tabcliente.to_s + "Local" + @tablocal.to_s + "Projeto" + @tabprojeto.to_s + "Atividade" + @tabtask.to_s + "Relatorio" + @tabrelato.to_s + "Task Report" + @tabreltask.to_s  )
+
    end
 
   soap_action "concat",
