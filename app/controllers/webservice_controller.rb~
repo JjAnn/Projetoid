@@ -17,7 +17,7 @@ class WebserviceController < ApplicationController
  
   soap_action "relatorio",
 	       :args => {:a => :int},
-               :return =>  { @relato.to_s => :string [{@reltask.to_s => :string}.to_s]}.to_s,
+               :return =>  { @relato.to_s => :string [{@reltask.to_s => :string}.to_s]},
 	       :response_tag => "Relatorios"
                
   def relatorio
