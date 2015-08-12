@@ -428,8 +428,8 @@ span {
   background: #00356a !important;
 }
 .bg-darkTeal {
-  background: #004050 !important
-overflow: visible;;
+  background: #004050 !important;
+overflow: visible;
 }
 .bg-darkEmerald {
   background: #003e00 !important;
@@ -5213,7 +5213,7 @@ a.tag {
   clear: both;
 }
 .app-bar .app-bar-element {
-  line-height: 3.125rem;
+  line-height: 4.125rem;
   padding: 0 .625rem;
   font-size: 1rem;
   cursor: pointer;
@@ -5222,7 +5222,7 @@ a.tag {
   float: left;
   position: relative;
   vertical-align: middle;
-  height: 3.125rem;
+  height: 4.125rem;
 }
 .app-bar .app-bar-element:hover,
 .app-bar .app-bar-element:active {
@@ -5235,8 +5235,8 @@ a.tag {
 .app-bar .app-bar-divider {
   display: block;
   float: left;
-  line-height: 3.125rem;
-  height: 3.125rem;
+  line-height: 4.125rem;
+  height: 4.125rem;
   width: 1px;
   background-color: #4c9cd7;
   padding: 0;
@@ -5252,7 +5252,7 @@ a.tag {
 }
 .app-bar .app-bar-menu > li,
 .app-bar .app-bar-menu > li > a {
-  line-height: 3.125rem;
+  line-height: 4.125rem;
   padding: 0 .625rem;
   font-size: 1rem;
   cursor: pointer;
@@ -5261,7 +5261,7 @@ a.tag {
   float: left;
   position: relative;
   vertical-align: middle;
-  height: 3.125rem;
+  height: 4.125rem;
 }
 .app-bar .app-bar-menu > li:hover,
 .app-bar .app-bar-menu > li > a:hover,
@@ -5353,8 +5353,8 @@ a.tag {
   color: #fff;
   cursor: pointer;
   font: 2rem sans-serif;
-  height: 3.125rem;
-  width: 3.125rem;
+  height: 4.125rem;
+  width: 4.125rem;
   line-height: 1.25rem;
   vertical-align: middle;
   text-align: center;
@@ -5442,7 +5442,7 @@ a.tag {
 }
 .app-bar.drop-up .app-bar-menu > li > .d-menu {
   top: auto;
-  bottom: 3.125rem;
+  bottom: 4.125rem;
 }
 .app-bar.drop-up .d-menu .d-menu {
   top: auto ;
