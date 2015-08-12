@@ -17,9 +17,9 @@ class WebserviceController < ApplicationController
 	       :args => {:a => :integer},
                :return => :string
   def relatorio
-  @busca = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id)
-
-  render :soap =>  @busca
+  @relato = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id)
+  @reltask = Reltask.where(relato_id: @relato)
+  render :soap =>  ("Relatorio:" + @relato.to_s + @reltask.to_s )
        
   end
 
