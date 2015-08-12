@@ -6,6 +6,6 @@
   end
 
   class RelatoContainer < WashOut::Type
-  type_name 'fluffy_con'
+  type_name 'relato_con'
   map :relato => Relato
   end
