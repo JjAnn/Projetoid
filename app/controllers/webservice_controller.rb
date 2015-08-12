@@ -18,8 +18,8 @@ class WebserviceController < ApplicationController
                :return => :string
   def relatorio
   @relato = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id)
-  
-  @reltask = Reltask.where(relato_id: @relato).pluck(:id, :task_id, :relato_id)
+  @relati = Relato.where(cliente_id: params[:a])
+  @reltask = Reltask.where(relato_id: @relati).pluck(:id, :task_id, :relato_id)
   render :soap =>  ("Relatorio:" + @relato.to_s + @reltask.to_s )
        
   end
