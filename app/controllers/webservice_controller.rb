@@ -17,7 +17,7 @@ class WebserviceController < ApplicationController
  
   soap_action "relatorio",
 	       :args => {:a => :integer},
-               :return =>  :string,
+               :return =>  {:string => [{:string}],
 	       :response_tag => "Relatorios"
                
   def relatorio
