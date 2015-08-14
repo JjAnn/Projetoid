@@ -5,7 +5,7 @@ ruby '2.2.2'
 gem 'rails', '4.2.2'
 gem 'wash_out'
 gem "cocoon"
-gem 'savon', '~> 2.0'
+gem 'savon'
 gem 'cancancan' 
 gem 'yaml_db'
 gem 'mysql2'

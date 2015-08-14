@@ -24,7 +24,7 @@ class WebserviceController < ApplicationController
   @relato = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id, :ip_address, :getlocal, :user_id)
   @relati = Relato.where(cliente_id: params[:a])
   @reltask = Reltask.where(relato_id: @relati).pluck(:id, :task_id, :relato_id, :ip_address, :getlocal, :user_id)
-  render :soap => [@relato.to_s => {"id" => @reltask.to_s}.to_s]
+  render :soap => [@relato_projeto_id.to_s => {"id" => @reltask_task_id.to_s}.to_s]
        end
 
   
