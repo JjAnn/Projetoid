@@ -17,14 +17,14 @@ class WebserviceController < ApplicationController
  
   soap_action "relatorio",
 	       :args => {:a => :integer},
-               :return =>  :string,
+               :return =>  :integer,
 	       :response_tag => "Relatorios"
                
   def relatorio
   @relato = Relato.where(cliente_id: params[:a]).pluck(:id, :projeto_id, :local_id, :ip_address, :getlocal, :user_id)
   @relati = Relato.where(cliente_id: params[:a])
   @reltask = Reltask.where(relato_id: @relati).pluck(:id, :task_id, :relato_id, :ip_address, :getlocal, :user_id)
-  render :soap =>   [@relato.to_s => {"id" => @relato_task_id.to_s}.to_s]
+  render :soap =>   [@relato => {"id" => @relato_task_id}]
        end
 
   
