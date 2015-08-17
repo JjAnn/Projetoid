@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Gerenciamento de Projetos</title>
-  <%= stylesheet_link_tag    'application', media: 'all'%>
-  <%= javascript_include_tag 'application' %>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'metro' %>
   <%= stylesheet_link_tag "style" %>
   <%= stylesheet_link_tag "button" %>
@@ -14,30 +14,46 @@
   <%= csrf_meta_tags %>
 </head>
 <!--  Inicio do Header -->
-<body class="bg-steel">
-    <div class="app-bar fixed-top darcula" data-role="appbar">
-        <a class="app-bar-element branding">Infinit</a>
-        <span class="app-bar-divider"></span>
-        <ul class="app-bar-menu"><% if can? :read, @Application %> 
-            <li><%= link_to 'Cliente', clienta_path %></li>
-            <li><%= link_to 'Projeto', projetopo_path %></li>         <% end %>  <% if can? :manage, Relato %>       
-            <li><%= link_to 'Relatorio', relatoss_path %></li>         <% end %><% if can? :manage, @Application %> 
-            <li><%= link_to 'Consultor', sign_up_path %></li>
-            <% end %>
-           
-        </ul>
+<body class="bg-teal">
+   
 
-        <div class="app-bar-element place-right">      <% if current_user %>
-            <span class="dropdown-toggle"><span class="mif-cog"></span> <%= current_user.name %></span> 
-            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow" data-role="dropdown" data-no-close="true" style="width: 220px">
+        <div class="flex-grid" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar"><% if can? :read, @Application %>
+                        <li class="active">
+                            <span ></span>
+                            <span class="title"><%= link_to 'Clientes', clienta_path, class:"mif-apps icon" %></span>
+                            
+                        </li>
+  <li>
+                            <span class="mif-apps icon"></span>
+                            <span class="title"><%= link_to 'Projetos', projetopo_path %></span>
+                            
+                        </li>
+                        <li>   <% end %> <% if can? :manage, Relato %>
+                            <span class="mif-vpn-publ icon"></span>
+                            <span class="title"><%= link_to 'Relatórios', relatoss_path %></span>
+                            
+                      </li>  <% end %><% if can? :manage, @Application %> 
+                   <li>
+                            <span class="mif-apps icon"></span>
+                            <span class="title"><%= link_to 'Consultores', sign_up_path %></span>
+                            
+                        </li>
+                    </ul>
+<% end %>
+
+ <% if current_user %>
+ <span class="dropdown-toggle"><span class="mif-cog"></span> <%= current_user.name %></span> 
+            <div class="app-bar-drop-container padding10 no-margin-top block-shadow" data-role="dropdown" data-no-close="true" style="width: 220px">
                
                 <ul class="unstyled-list">
                     <li><a href="" class="fg-white fg-hover-yellow">Perfil</a></li>
                     <li><%= link_to 'Sair', log_out_path, method: :delete %></li>
                 </ul><% end %>
             </div>
-        </div>
-    </div>
+                </div>
     <!-- Fim do Header -->
 
 

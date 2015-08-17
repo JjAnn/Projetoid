@@ -5432,7 +5432,7 @@ a.tag {
 }
 .app-bar.drop-up .app-bar-drop-container {
   top: auto;
-  bottom: 3.75rem;
+  bottom: 4.75rem;
 }
 .app-bar.drop-up .app-bar-drop-container:before {
   top: auto;

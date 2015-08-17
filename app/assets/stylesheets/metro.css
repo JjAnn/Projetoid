@@ -2833,6 +2833,22 @@ overflow: visible;
 .full-size {
   width: 100% !important;
 }
+.nome-size {
+  width: 50% !important;
+}
+.celular-size{
+  width: 30% !important;
+}
+.km-size{
+  width: 5% !important;
+}
+.cep-size{
+  width: 20% !important;
+}
+.email-size {
+  width: 50% !important;
+}
+
 .block {
   display: block !important;
 }
@@ -4810,10 +4826,21 @@ a.tag {
   display: block;
   width: 100%;
 }
+
+.flex-grid1 {
+  display: block;
+  width: 20%;
+  float: left;
+}
 .flex-grid .row {
   display: -webkit-flex;
   display: flex;
 }
+.noob .row {
+  display: -webkit-flex;
+  display: flex;
+}
+
 .flex-grid .row .cell {
   -webkit-flex: 0 0 8.33333333%;
   flex: 0 0 8.33333333%;

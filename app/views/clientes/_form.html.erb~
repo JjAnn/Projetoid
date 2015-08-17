@@ -15,27 +15,13 @@
       </ul>
     </div>
   <% end %>
-  <!-- Fim do Report de erros -->
+  <!-- Fim do Report de erros -->: 
 
   <!-- Inicio barra lateral -->
 <div class="page-content">
-        <div class="flex-grid no-responsive-future" style="height: 100%;">
-            <div class="row" style="height: 100%">
-                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-                    <ul class="sidebar">
-                        <li id="clientgrid" class="active" ><a>
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Listar Clientes</span>
-                            
-                        </a></li>
-                        <li id="calo" ><a >
-                            <span class="mif-vpn-publ icon"></span>
-                            <span class="title">Locais de Atendimento</span>
-                            
-                        </a></li>
-                 
-                    </ul>
-                </div>
+        
+            <div class="row" style="height: 100%; width: 100%;">
+              
 
  <!-- Fim de Barra Lateral -->
   <!-- Conteudo da Página -->
@@ -160,7 +146,7 @@
             <div class="input-control text full-size" data-role="input">
                 <label for="user_login">Nome Cliente/Fantasia: </label>
                  <%= f.text_field :name, id: 'user-login', :required => true , placeholder: "Nome do Cliente"%>
-                
+               
             </div>
            
   <br />
