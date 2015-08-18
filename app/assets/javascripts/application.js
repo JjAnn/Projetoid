@@ -25,6 +25,10 @@ $(document).ready(function() {
     $(function(){
  $(".cal-form").hide()
 });
+    $(function()
+{
+    $(".cadcon-form").hide()
+});
 
  $(function(){
  $(".cadcoc-form").hide()
@@ -40,6 +44,10 @@ $(document).ready(function() {
     $(function(){
  $(".cad-form").hide()
 });
+        $(function(){
+ $("#relatosproj").hide()
+});
+
 
  $(function(){
  $("#relatogeralfi").hide()
@@ -358,6 +366,46 @@ $("#relatoinsert").before($("#relatogeral"))
 
          });
 
+$("#relatogridfin").click( function() {
+
+$(function()
+{
+    $("#relatogeral").hide()
+
+});
+$(function()
+{
+ $("#relatocond").hide()
+
+});
+
+$(function()
+{
+    $(".cadcon-form").hide()
+});
+
+$(function()
+{
+    $("#relatogeralfi").show()
+
+});
+
+ $(function(){
+ $("#cadreltask").hide()
+});
+
+ $(function(){
+$("#relatoinsert").before($("#relatogeralfi"))
+});
+
+         });
+
+
+
+
+
+
+
 $("#add").click( function() {
 
 $(function(){
@@ -546,6 +594,10 @@ $(function()
 {
     $("#atividades").hide()
 });
+$(function()
+{
+    $("#relatosproj").hide()
+});
 
 $(function()
 {
@@ -556,11 +608,36 @@ $("#projethere").before($("#editproj1"))
 });
  });
 
+$("#dadosrel").click( function() {  
+
+$(function()
+{
+    $("#atividades").hide()
+});
+$(function()
+{
+    $("#editproj1").hide()
+});
+
+$(function()
+{
+    $("#relatosproj").show()
+});
+      $(function(){
+$("#projethere").before($("#relatosproj"))
+});
+ });
+
+
 $("#dadosativ").click( function() {  
 
 $(function()
 {
     $("#editproj1").hide()
+});
+$(function()
+{
+    $("#relatosproj").hide()
 });
 $(function()
 {

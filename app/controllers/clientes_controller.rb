@@ -22,7 +22,6 @@ class ClientesController < ApplicationController
  @local = Local.new
  @locals = Local.all
 
-
 end
   # GET /clientes/1/edit
   def edit

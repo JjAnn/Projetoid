@@ -18,31 +18,24 @@
 
 
   <!-- Inicio barra lateral -->
+ <hr class="thin bg-grayLighter">
 <div class="page-content">
-        <div class="flex-grid no-responsive-future" style="height: 100%;">
-            <div class="row" style="height: 100%">
-                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-                    <ul class="sidebar">
-                        <li id="relatogrid" class="active" ><a>
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Relatórios em Aberto</span>
-                            
-                        </a></li>
-  <li id="relatogridfin" ><a>
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Relatórios Finalizados </span>
-                            
-                        </a></li>
+        <div class="flex-size-auto" style="height: 100%">
+    
+            <div class="row" style="height: 100%; width: 100%">
 
-  <li id="relatogridcond" ><a>
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Condicional  </span>
-                            
-                        </a></li>
-                       
-                 
-                    </ul>
-                </div>
+              
+
+  <!-- Conteudo da Página -->
+    <div class="cell auto-size padding20 bg-white" id="cli1">
+
+   <div class="tabcontrol">
+<ul class="tabs">
+<li id="relatogrid" ><a href="#abertos">Relatórios em Aberto</a></li>
+<li  id="relatogridfin" ><a href="#finalizados">Relatórios Finalizados</a></li>
+<li  id="relatogridcond" ><a href="#condicionais">Condicionais</a></li>
+</ul>
+    </div> </div>
 
  <!-- Fim de Barra Lateral -->
     
@@ -50,29 +43,26 @@
  <!-- Conteudo da Página -->
 <div id="relatoinsert"> </div>
   <div class="cell auto-size padding20 bg-white" id="relatogeral">
-                    <h1 class="text-light"> Painel de Relatórios em Aberto </h1>
-                    <hr class="thin bg-grayLighter">
-                    <br />
-                    <br />
+                    
                     <br /> 
-                    <button class="button primary" id="addrel" ><span class="mif-plus"></span> Novo Relatório</button>
+                    <button class="button info block-shadow-info text-shadow" id="addrel" ><span class="mif-plus"></span> Novo Relatório</button>
          
                     <hr class="thin bg-grayLighter" > 
 
                    
-                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                    <table bgcolor="#f9f9f9" class="table striped hovered cell-hovered dataTable border bordered"  data-role="datatable" data-auto-width="true">
 
                         <thead>
                         <tr>
                             
-                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
-                       <td class="sortable-column" style="width: 45px">Cliente:</td>
-                            <td class="sortable-column" style="width: 45px">Projeto:</td>
-                            <td style="width: 45px">Local:</td>
-                                  <td style="width: 45px">Tempo:</td>
-                                   <td style="width: 45px">Observação:</td>
+                            <td class="sortable-column sort-asc">ID</td>
+                       <td class="sortable-column sort-asc">Cliente:</td>
+                            <td class="sortable-column sort-asc">Projeto:</td>
+                            <td class="sortable-column sort-asc">Local:</td>
+                                  <td class="sortable-column sort-asc">Tempo:</td>
+                                   <td class="sortable-column sort-asc">Observação:</td>
 
-                                        <td style="width: 5px">Ações:</td>
+                                        <td>Ações:</td>
                         </tr>
                         </thead>
 
@@ -88,7 +78,7 @@
     <td><%= relato.time %></td>
       <td><%= relato.comment %></td>
  
-           <td> <%= link_to 'Gerenciar', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %> </td>  <% end %>
+           <td> <%= link_to 'Reportar Atividades', edit_relato_path(relato) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', relato, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'm-btn red icn-only'  %> </td>  <% end %>
                             
                     
                            
@@ -100,9 +90,7 @@
                     </table>
                     
                 </div>
-            </div>
-        </div>
-    </div>
+      
 
 
  <!-- FIm Conteudo da Página -->
@@ -355,4 +343,4 @@
 <% end %>
 </div>
 </div>
-
+</div></div>

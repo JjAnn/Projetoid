@@ -127,7 +127,50 @@
 <% end %>
 
 </div>
- 
+<!-- Inicio dos relatorios --> 
+
+<div id="relatosproj">
+
+ <table bgcolor="#f9f9f9" class="table striped hovered cell-hovered dataTable border bordered"  data-role="datatable" data-auto-width="true">
+
+                        <thead>
+                        <tr>
+                            
+                            <td  class="sortable-column sort-asc" style="width: 10px">Usuario:</td>
+                          <td class="sortable-column" style="width: 60px">Atividades Reportadas</td>
+                           
+                            <td class="sortable-column" style="width: 45px">Status do Relatório</td>
+                            <td style="width: 45px">Comentarios</td>
+                            <td style="width: 5px">Localização</td>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                          <% @relatos.each do |relato| %>
+                           
+                        <tr>
+                            <td ><%= relato.user.name %></td>
+                            <td><%= @taskdone %></td>
+ <td ><%= relato.isdoe %></td>
+ <td><%= relato.comment %></td>
+  <td bgcolor="#fff" > LINK PARA GOOGLE MAPS </td>
+                            
+                          
+                           
+                        </tr>
+                        
+                        <% end %>
+                        </tbody>
+                    </table>
+                    
+
+
+
+
+
+</div> 
+
+
 
 
 <div id="editproj1">

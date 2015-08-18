@@ -21,6 +21,8 @@ class ClientesController < ApplicationController
  @clientes = Cliente.all
  @local = Local.new
  @locals = Local.all
+@client1e = Cliente.find(params[:id]).pluck(:id)
+ @projetos = Projeto.where(cliente_id: @client1e.id)
 
 
 end
@@ -79,7 +81,7 @@ end
   def destroy
     @cliente.destroy
     respond_to do |format|
-      format.html { redirect_to clientes_url, notice: 'Cliente was successfully destroyed.' }
+      format.html { redirect_to clienta_path, notice: 'Cliente was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
