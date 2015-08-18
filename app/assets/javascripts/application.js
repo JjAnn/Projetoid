@@ -68,7 +68,7 @@ $(function(){
 
 
         $(function(){
- $("#cadrelato").hide()
+ $(".carl-form").hide()
 });
 
         $(function(){
@@ -514,7 +514,8 @@ $(function()
 });
 
 $(function(){
-$("#addrel").before($(".carl-form"))});
+$("#addrel").before($(".carl-form"))
+});
 
          });
 

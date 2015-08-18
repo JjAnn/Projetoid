@@ -11,6 +11,8 @@ belongs_to :user
 belongs_to :reltask
 has_many :reltasks
 has_many :users
+has_many :conditionals
+belongs_to :conditional
 
 accepts_nested_attributes_for :reltasks, allow_destroy: true
 

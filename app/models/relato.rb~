@@ -1,6 +1,6 @@
 class Relato < ActiveRecord::Base
 geocoded_by :ip_address,
-  :latitude => :lat, :longitude => :lon
+  :latitude => :latitude, :longitude => :longitude
 after_validation :geocode
 belongs_to :cliente
 belongs_to :projeto
@@ -11,6 +11,7 @@ belongs_to :user
 belongs_to :reltask
 has_many :reltasks
 has_many :users
+has_many :conditionals
 
 accepts_nested_attributes_for :reltasks, allow_destroy: true
 

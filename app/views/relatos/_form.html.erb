@@ -46,7 +46,7 @@
                     
                     <br /> 
                     <button class="button info block-shadow-info text-shadow" id="addrel" ><span class="mif-plus"></span> Novo Relatório</button>
-         
+          <br />  <br /> 
                     <hr class="thin bg-grayLighter" > 
 
                    
@@ -55,7 +55,7 @@
                         <thead>
                         <tr>
                             
-                            <td class="sortable-column sort-asc">ID</td>
+                            <td class="sortable-column sort-asc">ID:</td>
                        <td class="sortable-column sort-asc">Cliente:</td>
                             <td class="sortable-column sort-asc">Projeto:</td>
                             <td class="sortable-column sort-asc">Local:</td>
@@ -104,12 +104,9 @@
 <!-- Finalizado Relatorio Inicio -->
 
   <div class="cell auto-size padding20 bg-white" id="relatocond">
-                    <h1 class="text-light"> Painel de Condicionais </h1>
-                    <hr class="thin bg-grayLighter">
-                    <br />
-                    <br />
+                   
                     <br /> 
-                    <button class="button primary" id="addcondit" ><span class="mif-plus"></span> Registrar Condicional </button>
+                    <button class="button info block-shadow-info text-shadow" id="addcondit" ><span class="mif-plus"></span> Registrar Condicional </button>
          
                     <hr class="thin bg-grayLighter" > 
 
@@ -120,11 +117,12 @@
                         <tr>
                             
                             <td class="sortable-column sort-asc" style="width: 100px">ID</td>
-                       <td class="sortable-column" style="width: 45px">Cliente:</td>
-                            <td class="sortable-column" style="width: 45px">Projeto:</td>
-                            <td style="width: 45px">Local:</td>
-                                  <td style="width: 45px">Tempo:</td>
+                       <td class="sortable-column" style="width: 45px">Projeto</td>
+                            <td class="sortable-column" style="width: 45px">Duração</td>
+                           
+                                  
                                    <td style="width: 45px">Observação:</td>
+                                   <td style="width: 45px">Data:</td>
 <td style="width: 45px">Ações:</td>
                                      
                         </tr>
@@ -140,7 +138,7 @@
     <td><%= condi.time %></td>
       <td><%= condi.why %></td>
 <td><%= condi.data %></td>
-           <td> <%= link_to 'Alterar', edit_conditional_path(conditional) , class: 'm-btn green icn-only' %>   </td>
+           <td> <%= link_to 'Edit', edit_conditional_path(condi), class: 'm-btn green icn-only' %>   </td>
                             
                           
                            
@@ -159,10 +157,7 @@
  <!-- Finalizado Relatorio Inicio -->
 
   <div class="cell auto-size padding20 bg-white" id="relatogeralfi">
-                    <h1 class="text-light"> Painel de Relatórios Finalizados </h1>
-                    <hr class="thin bg-grayLighter">
-                    <br />
-                    <br />
+                    
                     <br /> 
                    
          
@@ -219,57 +214,61 @@
 <span class="m-btn red-stripe">Cadastrar Condicional</span> <button style="float: right;" id="fecharcond" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
             <hr class="thin"/>
             <br />
+            <br />
 <%= form_for(@conditional) do |f| %>
-<div class="input-control text full-size" data-role="input">
+<div class="input-control text celular-size" data-role="input">
     <label for="user_login">Projeto: </label>
     <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, include_blank: true, class: 'form-control' %>
   </div>
-<br />
-<br />
 
 
+  
+    <div style="margin-left: 50px" class="input-control text cep-size" data-role="input">
+    <label for="user_login">Distância: </label>
+    <%= f.text_field :km %>
+  </div>
+  <div class="cep-size">
 <label class="input-control checkbox"> Translado: </label>
-    <%= f.check_box :transla %> 
+     </div>
+<label class="switch-original">
+<input type="checkbox">
+<span class="check"><%= f.check_box :transla  %></span>
+</label>
+<div>
 <label class="input-control checkbox"> Intervalo: </label>
-    <%= f.check_box :interval %> 
+    </div>
+<label class="switch-original">
+<input type="checkbox">
+<span class="check"> <%= f.check_box :interval %></span>
+</label>
+   
+<br />
+<br />
+<label for="user_login">Data:</label>
+    <span><%= f.date_select :data, :required => true, "data-role" => "datepicker"%></span>
 
+    <label style="margin-left: 50px" for="user_login">Duração:</label>
+    <%= f.time_select(:time) %>
+       
+
+     
+  
 <br />
 <br />
+<br />
+
+
   <div class="input-control text full-size" data-role="input">
      <label for="user_login">Descrição:</label> 
 <%= f.text_area(:why, :required => true, :size => 2) %>
   </div>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
-   <label for="user_login">Data:</label>
-   <%= f.date_select :data, :required => true, class: 'input-control text' %>
-
- 
-<br />
-<br />
-<label for="user_login">Duração:</label>
-    <%= f.time_select(:time) %>
-<br />
-<br />
-<br />
-
-  <div class="input-control text" data-role="input">
-    <label for="user_login">Distancia em KM: </label>
-    <%= f.number_field :km %>
-  </div>
-
-
-
+  <br />
 <br />
 <br />
 <br />
 <br />
-  
+<br />
 
   <div class="actions">
   <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
@@ -282,26 +281,24 @@
 
 <!-- Inicio do cadastro de relatórios --> 
  <div class="carl-form padding20 block-shadow" id="cadrelato">
-<span class="m-btn blue-stripe">Iniciar Relatório</span> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
+<span class="m-btn blue-stripe">Novo Relatório</span> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button>
             <hr class="thin"/>
             
             <br />
 
 <%= nested_form_for @relato do |f| %>
         <%= f.hidden_field(:isdoe, :value => false) %>
- <div class="input-control text full-size" data-role="input">
+ <div class="input-control text celular-size" data-role="input">
     <label for="user_login">Cliente: </label>
   <%= f.collection_select :cliente_id, Cliente.order(:name), :id, :name, prompt: "Selecionar", :required => true %>
   </div>
-<br />
-<br />
- <div class="input-control text full-size" data-role="input">
+
+ <div class="input-control text cep-size" data-role="input">
     <label for="user_login">Projeto: </label>
    <%= f.grouped_collection_select :projeto_id, Cliente.order(:name), :projetos, :name, :id, :name, prompt: "Selecionar" , :required => true%>
   </div>
-<br />
-<br />
-  <div class="input-control text full-size" data-role="input">
+
+  <div class="input-control text cep-size" data-role="input">
     <label for="user_login">Local de Atendimento: </label>
    <%= f.grouped_collection_select :local_id, Cliente.order(:name), :locals, :name, :id, :cep, prompt: "Selecionar", :required => true %>
   </div>
