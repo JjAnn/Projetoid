@@ -28,7 +28,7 @@ class ProjetosController < ApplicationController
   @projetos = Projeto.all
   @projeto1 = Projeto.find(params[:id])
   @relatos = Relato.where(projeto_id: @projeto1.id)
-@relatos2 = Relato.where(projeto_id: @projeto1.id).pluck(:id)
+  @relatos2 = Relato.where(projeto_id: @projeto1.id).pluck(:id)
   @relaton = @relatos.count
   @taskdone = Reltask.where(relato_id: @relatos2).pluck(:task_id) 
 

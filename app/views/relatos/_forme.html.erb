@@ -18,25 +18,23 @@
 
 
   <!-- Inicio barra lateral -->
+<hr class="thin bg-grayLighter">
 <div class="page-content">
-        <div class="flex-grid no-responsive-future" style="height: 100%;">
-            <div class="row" style="height: 100%">
-                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-                    <ul class="sidebar">
-                        <li id="relatogrid" class="active" ><a href="/relatorio#relatogrid">
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Relatórios em Aberto</span>
-                            
-                        </a></li>
-  <li id="relatogridfin" ><a href="/relatorio#relatogridfin">
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Relatórios Finalizados </span>
-                            
-                        </a></li>
-                       
-                 
-                    </ul>
-                </div>
+        <div class="flex-size-auto" style="height: 100%">
+    
+            <div class="row" style="height: 100%; width: 100%">
+
+              
+
+  <!-- Conteudo da Página -->
+    <div class="cell auto-size padding20 bg-white" id="cli1">
+
+   <div class="tabcontrol">
+<ul class="tabs">
+<li ><a href="#projetos">Projetos</a></li>
+
+</ul>
+    </div> </div>
 
  <!-- Fim de Barra Lateral -->
 
@@ -47,10 +45,7 @@
 <!-- Inicio do cadastro de relatórios --> 
 
  <div class="cell auto-size padding20 bg-white" id="relatogeral">
-                    <h1 class="text-light"> Painel de Relatórios em Aberto </h1>
-                    <hr class="thin bg-grayLighter">
-                    <br />
-                    <br />
+                   
                     <br /> 
  <div class="carledit-form padding20 block-shadow" id="cadrelatoedit">
 <span class="m-btn blue-stripe">Iniciar Relatório</span> <a href="/relatorio"> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a> <button class="button primary" id="editarrelato" > Mostrar Informações do Relatório </button> 
@@ -63,9 +58,11 @@
            <br />  
 
    <%= f.fields_for :reltasks do |ff| %> 
+   <div style="margin-left: 10px; margin-bottom: 25px" class="input-control text cep-size" data-role="input">
 <%= ff.select :task_id, nested_set_options(Task.where(projeto_id: @projeto1.projeto_id)) {|i| "#{'+' * i.level} #{i.descr}" }  %>
-
-<%=  ff.text_field :comentario, :placeholder => "Comentários" %>
+</div>
+<div style="margin-left: 10px; margin-bottom: 25px" class="input-control text cep-size" data-role="input">
+<%=  ff.text_field :comentario, :placeholder => "Comentários" %></div>
  <%= ff.hidden_field(:user_id, :value => current_user.id) %>
  <%= ff.hidden_field(:tempo, :value => Time.now) %>
 <%= ff.hidden_field(:ip_address, :value => request.remote_ip)  %>
@@ -90,10 +87,6 @@
  <%= f.link_to_add "Reportar Atividade", :reltasks, class: 'button success' %> <br>
 <br />
 <br />
-
-
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@projeto1.latitude}%2C#{@projeto1.longitude}" %>
 
 <div id="esconderrelato">
 

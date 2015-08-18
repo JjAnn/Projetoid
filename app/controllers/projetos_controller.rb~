@@ -30,7 +30,7 @@ class ProjetosController < ApplicationController
   @relatos = Relato.where(projeto_id: @projeto1.id)
 @relatos2 = Relato.where(projeto_id: @projeto1.id).pluck(:id)
   @relaton = @relatos.count
-  @taskdone = Reltask.where(relato_id: @relatos2) 
+  @taskdone = Reltask.where(relato_id: @relatos2).pluck(:task_id) 
 
   end
 

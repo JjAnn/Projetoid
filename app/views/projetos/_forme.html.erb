@@ -153,7 +153,7 @@
                             <td><%= @taskdone %></td>
  <td ><%= relato.isdoe %></td>
  <td><%= relato.comment %></td>
-  <td bgcolor="#fff" > LINK PARA GOOGLE MAPS </td>
+  <td bgcolor="#fff" > <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{relato.latitude}%2C#{relato.longitude}" %> </td>
                             
                           
                            
