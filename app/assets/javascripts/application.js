@@ -186,6 +186,9 @@ $(function()
 });
          });
 
+ 
+
+
  $("#fecharcac").click( function() {
 
 $(function()
@@ -535,6 +538,42 @@ $(function()
 $("#projethere").before($("#cacgeral"))
 });
  });
+
+$("#dadosproj").click( function() {  
+
+
+$(function()
+{
+    $("#atividades").hide()
+});
+
+$(function()
+{
+    $("#editproj1").show()
+});
+      $(function(){
+$("#projethere").before($("#editproj1"))
+});
+ });
+
+$("#dadosativ").click( function() {  
+
+$(function()
+{
+    $("#editproj1").hide()
+});
+$(function()
+{
+    $("#atividades").show()
+});
+
+
+      $(function(){
+$("#projethere").before($("#atividades"))
+});
+ });
+
+
 
 
 $("#showtask").click( function() {  

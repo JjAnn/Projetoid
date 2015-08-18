@@ -2845,6 +2845,9 @@ overflow: visible;
 .cep-size{
   width: 20% !important;
 }
+.id-size{
+  width: 5% !important;
+}
 .email-size {
   width: 50% !important;
 }

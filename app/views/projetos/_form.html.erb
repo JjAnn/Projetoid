@@ -53,15 +53,15 @@
                         <thead>
                         <tr>
                             
-                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
-                            <td class="sortable-column" style="width: 45px">Cliente:</td>
-                             <td class="sortable-column" style="width: 45px">Nome do Projeto:</td>
-                              <td class="sortable-column" style="width: 70px">Descrição:</td>
-                               <td class="sortable-column" style="width: 45px">Tipo:</td>
-                                <td class="sortable-column" style="width: 45px">Gerente:</td>
-                                 <td class="sortable-column" style="width: 45px">Data Inicial:</td>
-                            <td class="sortable-column" style="width: 45px">Data Final:</td>
-                                <td style="width: 5px">Ações:</td>
+                             <td class="sortable-column" >ID</td>
+                            <td class="sortable-column" >Cliente:</td>
+                             <td class="sortable-column" >Nome do Projeto:</td>
+                               <td class="sortable-column" >Descrição:</td>
+                              <td class="sortable-column" >Tipo:</td>
+                                 <td class="sortable-column" >Gerente:</td>
+                                  <td class="sortable-column" >Data Inicial:</td>
+                            <td class="sortable-column" >Data Final:</td>
+                                <td style="width: 50px">Ações:</td>
 
                         </tr>
                         </thead>
@@ -79,7 +79,7 @@
                                    <td><%= projeto.user.name %></td>
                                      <td><%= projeto.dateini %></td>
                                        <td><%= projeto.datefin %></td>
-                                         <td> <%= link_to 'Painel de Controle', edit_projeto_path(projeto) , class: 'm-btn green icn-only' %> <%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-btn red icn-only'  %>  </td>
+                                         <td> <%= link_to 'Painel de Controle', edit_projeto_path(projeto) , class: 'acaoprojeto m-btn green icn-only' %> <%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Tem certeza' }, class: 'acaoprojeto1 m-btn red icn-only'  %>  </td>
                             
                           
                            
@@ -105,16 +105,24 @@
             <hr class="thin"/>
             <br />
 <%= form_for(@projeto) do |f| %>
-    		<div class="input-control text full-size" data-role="input">
-               	   <label for="user_login">Cliente: </label>
+    		<div class="input-control text celular-size" data-role="input">
+               	   <label for="user_login">Cliente:</label>
      			<%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar", :required => true) %>
   		</div>
- <br />
+      <div style="margin-left: 10px" class="input-control text cep-size" data-role="input">
+   <label for="user_login">Gerente:</label>  
+     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar", :required => true, id: 'user-login') %>
+  </div>
+  <div style="margin-left: 8px"  class="input-control text cep-size" data-role="input">
+     <label for="user_login">Tipo:</label>  
+    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, :required => true, id: 'user-login') %>
+  </div><br />
   <br />
-<div class="input-control text full-size" data-role="input">
+  <div class="input-control text nome-size" data-role="input">
     <label for="user_login">Apelido do Projeto:</label>  
     <%= f.text_field :name, :required => true, id: 'user-login' %>
   </div>
+
  <br />
   <br />
  <div class="input-control text full-size" data-role="input">
@@ -125,25 +133,14 @@
   <br />
  <br />
   <br />
- <br />
   <br />
-  <div class="input-control text full-size" data-role="input">
-     <label for="user_login">Tipo:</label>  
-    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, :required => true, id: 'user-login') %>
-  </div>
- <br />
-  <br />
- <div class="input-control text full-size" data-role="input">
-   <label for="user_login">Gerente:</label>  
-     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar", :required => true, id: 'user-login') %>
-  </div>
  <br />
   <br />
  <div class="calendar-cell year-cell align-left year" data-role="input">
      <label for="user_login">Data de Inicio:</label>  
     <%= f.date_select :dateini, :required => true , id: 'user-login'%>
 
- <label for="user_login">    Data de Finalização:</label>  
+ <label style="margin-left: 15px"  for="user_login">    Data de Finalização:</label>  
     <%= f.date_select :datefin, :required => true, id: 'user-login' %>
   </div>
  <br />

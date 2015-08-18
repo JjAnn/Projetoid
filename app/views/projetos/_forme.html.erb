@@ -18,21 +18,23 @@
 
 
   <!-- Inicio barra lateral -->
+<hr class="thin bg-grayLighter">
 <div class="page-content">
-        <div class="flex-grid no-responsive-future" style="height: 100%;">
-            <div class="row" style="height: 100%">
-                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%;">
-                    <ul class="sidebar">
-                        <li id="projetogrid" class="active" ><a href="/projeto/new">
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Listar projetos</span>
-                            
-                        </a></li>
+        <div class="flex-size-auto" style="height: 100%">
+    
+            <div class="row" style="height: 100%; width: 100%">
 
-                       
-                 
-                    </ul>
-                </div>
+              
+
+  <!-- Conteudo da Página -->
+    <div class="cell auto-size padding20 bg-white" id="cli1">
+
+   <div class="tabcontrol">
+<ul class="tabs">
+<li ><a href="#projetos">Projetos</a></li>
+
+</ul>
+    </div> </div>
 
  <!-- Fim de Barra Lateral -->
 
@@ -49,28 +51,36 @@
 
 
  <div id="cadprojedit" class="cadprojedit-form padding20 block-shadow">
-<span class="m-btn green-stripe">Gerenciar Projeto</span><a href="/projetos/new"><button style="float: right;" id="fecharcap" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a>
+<span class="m-btn green-stripe">Painel de Controle</span><a href="/projetos/new"><button style="float: right;" id="fecharcap" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a>
+         
+
+ <div class="cell auto-size padding20 bg-white" id="cli1">
+
+   <div class="tabcontrol">
+<ul class="tabs">
+<li  id="dadosproj"><a href="#dados">Visualizar Dados</a></li>
+<li  id="dadosativ" ><a href="#locais">Controle de Atividades</a></li>
+<li  id="dadosrel" ><a href="#locais">Relatórios Elaborados </a></li>
+</ul>
+    </div> </div>
+
+ <div id="projethere"> </div>
+
+ <div id="atividades">
+<span class="m-btn red-stripe">Atividades do Projeto</span>
             <hr class="thin"/>
             <br />
+ <% nested_set_options(Task.where(projeto_id: @projeto1.id)) { |i|  " #{'–' * i.level}  #{i.raiz}  #{i.descr} #{i.id} " }.each do |raiz, id| %>
+    <div class="treeview" data-role="treeview">
+      
+    <ul>
 
-<table >
-<thead> 
-<td> COD - Descrição - ID </td>
-</thead>
-                       
-                        <tbody>
-                                   
-                          <% nested_set_options(Task.where(projeto_id: @projeto1.id)) { |i|  " #{'–' * i.level}  #{i.raiz}  #{i.descr} #{i.id} " }.each do |raiz, id| %>
-                        <tr>
-                         
-                           	<td><%= raiz %> </td>
-				<td>
-</td>
-			            
- 			</tr>
-                        <% end %>
-                        </tbody>
-                    </table>
+    <li><span class="leaf"><%= raiz %></span></li>
+    </ul>
+   
+    </div>
+ <% end %>
+
 
 <br />
 <br />
@@ -82,81 +92,104 @@
 <%= f.fields_for :tasks do |ff| %>
    
 
-
- <%=  ff.number_field :raiz, :placeholder => "Identificador" %> 
- <%=  ff.text_field :descr, :placeholder => "Descrição" %>   
-   <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> 
+ <div style="margin-left: 10px; margin-bottom: 25px" class="input-control text id-size" data-role="input">
+     <label for="user_login">Código:</label>
+ <%=  ff.number_field :raiz, :placeholder => "COD" %> </div>
+  <div style="margin-left: 10px; margin-bottom: 25px" class="input-control text celular-size" data-role="input">
+       <label for="user_login">Descrição:</label>
+ <%=  ff.text_field :descr, :placeholder => "Descrição" %>   </div>
+  <div style="margin-left: 10px; margin-bottom: 25px" class="input-control text id-size" data-role="input">
+       <label for="user_login">Horas:</label>
+   <%=  ff.number_field :tempo, :placeholder => "Carga Horária Estimada" %> </div>
+    <div style="margin-left: 10px; margin-bottom: 25px" class="input-control text cep-size" data-role="input">
    <label for="user_login">Tipo de Atividade:</label>
- <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %>
-<%= ff.number_field :parent_id , :placeholder => "ID Pai"  %>
+ <%= ff.select("typo", {"Analitica" => "Analitica", "Sintetica" => "Sintetica"}) %></div>
 
-<%= ff.link_to_remove "X" ,class: 'm-btn red icn-only' %>
+  <div style="margin-left: 10px; margin-bottom: 25px" class="input-control text id-size" data-role="input">
+       <label for="user_login">ID PAI:</label>
+<%= ff.number_field :parent_id , :placeholder => "ID Pai"  %></div>
+  <div style="margin-left: 10px; margin-bottom: 25px" class="input-control text id-size" data-role="input">
+<%= ff.link_to_remove "X" ,class: 'm-btn red icn-only ' %></div>
 <%= ff.hidden_field(:projeto_id, :value => @projeto.id) %>
 			            
  			
                         <% end %>
+
                 
 </div> 
 
  <%= f.link_to_add "Adicionar Atividade", :tasks, class: 'button success' %> <br>
 <br />
 
+<div class="actions">
+  <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
+  </div>
+<% end %>
+
+</div>
+ 
+
 
 <div id="editproj1">
-    		<div class="input-control text full-size" data-role="input">
-               	   <label for="user_login">Cliente: </label>
-     			<%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar") %>
-  		</div>
- <br />
-  <br />
-<div class="input-control text full-size" data-role="input">
-    <label for="user_login">Apelido do Projeto:</label>  
-    <%= f.text_field :name, id: 'user-login' %>
+<span class="m-btn red-stripe">Dados do Projeto</span>
+            <hr class="thin"/>
+            <br />
+<%= form_for(@projeto) do |f| %>
+        <div class="input-control text celular-size" data-role="input">
+                   <label for="user_login">Cliente:</label>
+          <%= f.collection_select(:cliente_id, Cliente.all, :id, :name, prompt: "Selecionar", :required => true) %>
+      </div>
+      <div style="margin-left: 10px" class="input-control text cep-size" data-role="input">
+   <label for="user_login">Gerente:</label>  
+     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar", :required => true, id: 'user-login') %>
   </div>
+  <div style="margin-left: 8px"  class="input-control text cep-size" data-role="input">
+     <label for="user_login">Tipo:</label>  
+    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, :required => true, id: 'user-login') %>
+  </div><br />
+  <br />
+  <div class="input-control text nome-size" data-role="input">
+    <label for="user_login">Apelido do Projeto:</label>  
+    <%= f.text_field :name, :required => true, id: 'user-login' %>
+  </div>
+
  <br />
   <br />
  <div class="input-control text full-size" data-role="input">
     <label for="user_login">Descrição do Projeto:</label>  
-    <%= f.text_area(:descr, :size => 5) %>
+    <%= f.text_area(:descr, :required => true, :size => 5) %>
   </div>
  <br />
   <br />
  <br />
   <br />
+  <br />
  <br />
   <br />
-  <div class="input-control text full-size" data-role="input">
-     <label for="user_login">Tipo:</label>  
-    <%= f.select("typo", {"Avulso" => "Avulso", "Padrão" => "Padrao"}, id: 'user-login') %>
-  </div>
- <br />
-  <br />
- <div class="input-control text full-size" data-role="input">
-   <label for="user_login">Gerente:</label>  
-     <%= f.collection_select(:user_id, User.all, :id, :name, prompt: "Selecionar", id: 'user-login') %>
-  </div>
- <br />
-  <br />
- <div class="calendar-cell year-cell align-center year" data-role="input">
-     <label for="user_login">Data Inicio:</label>  
-    <%= f.date_select :dateini, id: 'user-login'%>
-  </div>
- <br />
-  <br />
- <div class="calendar-cell year-cell align-center year" data-role="input">
-    <label for="user_login">Data Fim:</label>  
-    <%= f.date_select :datefin, id: 'user-login' %>
-  </div>
- <br />
-  <br />
- </div>
+ <div class="calendar-cell year-cell align-left year" data-role="input">
+     <label for="user_login">Data de Inicio:</label>  
+    <%= f.date_select :dateini, :required => true , id: 'user-login'%>
 
+ <label style="margin-left: 15px"  for="user_login">    Data de Finalização:</label>  
+    <%= f.date_select :datefin, :required => true, id: 'user-login' %>
+  </div>
+ <br />
+
+
+ <br />
+  <br />
+ 
   <div class="actions">
   <%= f.submit 'Cadastrar', class: 'm-btn blue' %>
   </div>
 <% end %>
 
-</div></div>
+</div>
 
+
+
+</div>
+
+</div></div>
 </div></div>
 
