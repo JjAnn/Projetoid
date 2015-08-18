@@ -15,20 +15,24 @@
   <% end %>
   <!-- fim do report de erros -->
 <!-- Inicio barra lateral -->
+ <hr class="thin bg-grayLighter">
 <div class="page-content">
-        <div class="flex-grid no-responsive-future" style="height: 100%;">
-            <div class="row" style="height: 100%">
-                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-                    <ul class="sidebar">
-                        <li id="projetogrid" class="active" ><a>
-                            <span class="mif-apps icon"></span>
-                            <span class="title">Projetos</span>
-                            
-                        </a></li>
-                      
-                      
-                    </ul>
-                </div>
+        <div class="flex-size-auto" style="height: 100%">
+    
+            <div class="row" style="height: 100%; width: 100%">
+
+              
+
+  <!-- Conteudo da Página -->
+    <div class="cell auto-size padding20 bg-white" id="cli1">
+
+   <div class="tabcontrol">
+<ul class="tabs">
+<li ><a href="#projetos">Projetos</a></li>
+
+</ul>
+    </div> </div>
+
 
  <!-- Fim de Barra Lateral -->
 
@@ -36,18 +40,15 @@
  <!-- Conteudo da Página -->
 
   <div class="cell auto-size padding20 bg-white" id="showproj1">
-                    <h1 class="text-light"> Painel de Projetos</h1>
-                    <hr class="thin bg-grayLighter">
-                    <br />
-                    <br />
+                 
                     <br /> 
-                    <button class="button primary" id="addproj" ><span class="mif-plus"></span> Novo Projeto</button>
-         
+                    
+                    <button class="button info block-shadow-info text-shadow" id="addproj" ><span style="margin-right: 5px" class="mif-plus"></span> Adicionar Projeto </button>
                     <hr class="thin bg-grayLighter" > 
 
                    
                    
-                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                    <table bgcolor="#f9f9f9" class="table striped hovered cell-hovered dataTable border bordered"  data-role="datatable" data-auto-width="false">
 
                         <thead>
                         <tr>
