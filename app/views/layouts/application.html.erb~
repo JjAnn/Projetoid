@@ -14,54 +14,54 @@
   <%= csrf_meta_tags %>
 </head>
 <!--  Inicio do Header -->
-<body class="bg-teal">
+<body style="background-color: #f9f9f9">
+
    
-
-        <div class="flex-grid" style="height: 100%;">
-            <div class="row" style="height: 100%">
-                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
-                    <ul class="sidebar"><% if can? :read, @Application %>
-                        <li class="active">
-                            <span ></span>
-                            <span class="title"><%= link_to 'Clientes', clienta_path, class:"mif-apps icon" %></span>
-                            
-                        </li>
-  <li>
-                            <span class="mif-apps icon"></span>
-                            <span class="title"><%= link_to 'Projetos', projetopo_path %></span>
-                            
-                        </li>
-                        <li>   <% end %> <% if can? :manage, Relato %>
-                            <span class="mif-vpn-publ icon"></span>
-                            <span class="title"><%= link_to 'Relatórios', relatoss_path %></span>
-                            
-                      </li>  <% end %><% if can? :manage, @Application %> 
-                   <li>
-                            <span class="mif-apps icon"></span>
-                            <span class="title"><%= link_to 'Consultores', sign_up_path %></span>
-                            
-                        </li>
-                    </ul>
+   <div class="bg-white" style="width:100%; height: 103px; float: none">
+   <span style="float: left"> <%= image_tag "infinitlogo.png" %> </span>
+  <div  style=" float: left; margin-top: 20px; margin-left: 7%">
+<% if can? :read, @Application %>
+                     
+                           <ul class="m-menu" >
+                            <li>
+                            <%= link_to 'Clientes', clienta_path %>
+                               </li>
+       
+  
+                             <li>
+                          <%= link_to 'Projetos', projetopo_path %> 
+                              </li><% end %>
+                         <% if can? :manage, Relato %>
+                           <li>
+                            <%= link_to 'Relatórios', relatoss_path %>
+                              </li>
+                      <% end %><% if can? :manage, @Application %> 
+                    
+                                <li>
+                            <%= link_to 'Consultores', sign_up_path %>
+                              </li>
+            </ul></div>          
 <% end %>
-
- <% if current_user %>
+      
+    <div style="float: right; margin-top: 30px; margin-right: 20px">
+     <% if current_user %>
  <span class="dropdown-toggle"><span class="mif-cog"></span> <%= current_user.name %></span> 
-            <div class="app-bar-drop-container padding10 no-margin-top block-shadow" data-role="dropdown" data-no-close="true" style="width: 220px">
+            <div class="app-bar-drop-container padding10 no-margin-top block-shadow" data-role="dropdown" data-no-close="true" >
                
                 <ul class="unstyled-list">
-                    <li><a href="" class="fg-white fg-hover-yellow">Perfil</a></li>
+                    <li><a href="" class="fg-black fg-hover-yellow">Perfil</a></li>
                     <li><%= link_to 'Sair', log_out_path, method: :delete %></li>
                 </ul><% end %>
-            </div>
-                </div>
-    <!-- Fim do Header -->
+            </div> 
+ </div>
 
-
-  <div >
+          </div>
+  <div class="flex-size-auto" style="width: 100%; float: none">
     <%= yield %>
   </div>
 
-</div>
+
+
 
 
 

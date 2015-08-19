@@ -29,13 +29,13 @@
        
   
                              <li>
-                          <%= link_to 'Projetos', projetopo_path %> <% end %>
-                              </li>
-                         <% if can? :manage, Relato %>
+                          <%= link_to 'Projetos', projetopo_path %> 
+                              </li><% end %>
+                         <% if can? :read, Relato %>
                            <li>
                             <%= link_to 'Relatórios', relatoss_path %>
                               </li>
-                      <% end %><% if can? :manage, @Application %> 
+                      <% end %><% if can? :read, @Application %> 
                     
                                 <li>
                             <%= link_to 'Consultores', sign_up_path %>
