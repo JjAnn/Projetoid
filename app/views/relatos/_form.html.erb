@@ -115,14 +115,15 @@
                         <thead>
                         <tr>
                             
-                            <td class="sortable-column sort-asc" style="width: 100px">ID</td>
-                       <td class="sortable-column" style="width: 45px">Projeto</td>
-                            <td class="sortable-column" style="width: 45px">Duração</td>
+                            <td class="sortable-column sort-asc" style="width: 100px">ID:</td>
+                       <td class="sortable-column" style="width: 45px">Projeto:</td>
+                            <td class="sortable-column" style="width: 45px">Duração:</td>
                            
                                   
                                    <td style="width: 45px">Observação:</td>
-                                   <td style="width: 45px">Data:</td>
-<td style="width: 45px">Ações:</td>
+                                   <td style="width: 45px">Consultor:</td>
+                                     <td style="width: 45px">Data:</td>
+                                <td style="width: 45px">Ações:</td>
                                      
                         </tr>
                         </thead>
@@ -136,6 +137,7 @@
                             <td><%= condi.projeto.name %></td>
     <td><%= condi.time %></td>
       <td><%= condi.why %></td>
+          <td><%= condi.user.name %></td>
 <td><%= condi.data %></td>
            <td> <%= link_to 'Alterar Condicional', edit_conditional_path(condi), class: 'm-btn green icn-only' %>   </td><% end %>
                             
@@ -248,7 +250,7 @@
 
     <label style="margin-left: 50px" for="user_login">Duração:</label>
     <%= f.text_field :time , class:"input-control text cep-size", placeholder: "Duração" %>
-       
+        <%= f.hidden_field(:user_id, :value => current_user.id) %>
 
      
   

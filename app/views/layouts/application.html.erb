@@ -32,9 +32,9 @@
                           <%= link_to 'Projetos', projetopo_path %> 
                               </li><% end %>
                       
-                           <li>
+                           <li>   <% if can? :read, Relato %> 
                             <%= link_to 'Relatórios', relatoss_path %>
-                              </li>
+                              </li><% end %>
                   <% if can? :read, @Application %> 
                     
                                 <li>
@@ -46,7 +46,7 @@
     <div style="float: right; margin-top: 30px; margin-right: 20px">
      <% if current_user %>
  <span class="dropdown-toggle"><span class="mif-cog"></span> <%= current_user.name %></span> 
-            <div class="app-bar-drop-container padding10 no-margin-top block-shadow" data-role="dropdown" data-no-close="true" >
+            <div class="app-bar-drop-container zindex bg-white padding10 no-margin-top block-shadow" data-role="dropdown" data-no-close="true" >
                
                 <ul class="unstyled-list">
                     <li><a href="" class="fg-black fg-hover-yellow">Perfil</a></li>
