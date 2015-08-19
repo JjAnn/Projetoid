@@ -56,6 +56,8 @@
     <%= f.time_select(:time) %>
 <br />
 <br />
+<br />
+
   <div class="input-control text" data-role="input">
     <label for="user_login">Distancia em KM: </label>
     <%= f.number_field :km %>

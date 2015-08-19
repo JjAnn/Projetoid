@@ -47,6 +47,9 @@ $(document).ready(function() {
         $(function(){
  $("#relatosproj").hide()
 });
+                $(function(){
+ $("#condiproj").hide()
+});
 
 
  $(function(){
@@ -599,6 +602,10 @@ $(function()
 {
     $("#relatosproj").hide()
 });
+$(function()
+{
+    $("#condiproj").hide()
+});
 
 $(function()
 {
@@ -619,6 +626,11 @@ $(function()
 {
     $("#editproj1").hide()
 });
+$(function()
+{
+    $("#condiproj").hide()
+});
+
 
 $(function()
 {
@@ -626,6 +638,30 @@ $(function()
 });
       $(function(){
 $("#projethere").before($("#relatosproj"))
+});
+ });
+$("#dadoscondi").click( function() {  
+
+$(function()
+{
+    $("#atividades").hide()
+});
+$(function()
+{
+    $("#editproj1").hide()
+});
+$(function()
+{
+    $("#relatosproj").hide()
+});
+
+
+$(function()
+{
+    $("#condiproj").show()
+});
+      $(function(){
+$("#projethere").before($("#condiproj"))
 });
  });
 
@@ -639,6 +675,10 @@ $(function()
 $(function()
 {
     $("#relatosproj").hide()
+});
+$(function()
+{
+    $("#condiproj").hide()
 });
 $(function()
 {

@@ -69,6 +69,6 @@ class ConditionalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conditional_params
-      params.require(:conditional).permit(:transla, :interval, :km, :data, :why, :time, :projeto_id)
+      params.require(:conditional).permit(:transla, :interval, :km, :data, :why, :time, :projeto_id, :user_id)
     end
 end

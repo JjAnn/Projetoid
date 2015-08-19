@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 201507271723135) do
     t.integer  "projeto_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "conditionals", ["projeto_id"], name: "index_conditionals_on_projeto_id"
+  add_index "conditionals", ["user_id"], name: "index_conditionals_on_user_id"
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
