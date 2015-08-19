@@ -1,12 +1,10 @@
 <<<<<<< HEAD
 Sistema de Gerenciamento de Projeto .
 
-
-Bugs = Erro no logi no Heroku - 
-
-Problema no add_fields ou jQuery 
-
-Problema no CanCanCan não visualizando role do usuario normal 
+ - Implementar AJAX no cadastro de atividades
+ - Corrigir sistema de Geolocalização localizando somente ISP primario
+ - Construir SOAP Client para cadastro do Cliente e Projetos
+ - Corrigir SOAP Service extraindo tudo em uma unica array
 
 
 =======
