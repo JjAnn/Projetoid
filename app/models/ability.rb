@@ -32,12 +32,14 @@ class Ability
 
     user ||= User.new 
 
- alias_action :create, :read, :update, :destroy, :to => :crud
+   alias_action :create, :read, :update, :destroy, :to => :crud
    can :manage, :all if user.role == "admin"
    
      if user.role == "normal"
      can :read, Relato ,  :user_id => user.id 
      can :manage, Relato,  :user_id => user.id 
+     can :manage, Conditional,  :user_id => user.id 
+     can :manage, Conditional,  :user_id => user.id 
     
 
   end

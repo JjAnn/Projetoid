@@ -550,6 +550,20 @@ $(function()
 {
     $("#esconderrelato").show()
 });
+$(function()
+{
+    $("#98task").hide()
+});
+});
+$("#87edit").click( function() { 
+$(function()
+{
+    $("#esconderrelato").hide()
+});
+$(function()
+{
+    $("#98task").show()
+});
 });
 
 

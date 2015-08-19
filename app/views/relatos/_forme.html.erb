@@ -48,12 +48,12 @@
                    
                     <br /> 
  <div class="carledit-form padding20 block-shadow" id="cadrelatoedit">
-<span class="m-btn blue-stripe">Iniciar Relatório</span> <a href="/relatorio"> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a> <button class="button primary" id="editarrelato" > Mostrar Informações do Relatório </button> 
+<span class="m-btn blue-stripe">Iniciar Relatório</span> <a href="/relatorio"> <button style="float: right;" id="fecharrel" class="button alert" onclick="pushMessage('alert')">Cancelar</button></a> <button class="button primary" id="editarrelato" > Mostrar Informações do Relatório </button> <button class="button primary" id="87edit" > Painel de Atividades </button> 
             <hr class="thin"/>
             
             <br />
 
-
+<div id="98task">
 <%= nested_form_for @relato do |f| %>
            <br />  
 
@@ -87,6 +87,8 @@
  <%= f.link_to_add "Reportar Atividade", :reltasks, class: 'button success' %> <br>
 <br />
 <br />
+
+</div>
 
 <div id="esconderrelato">
 
