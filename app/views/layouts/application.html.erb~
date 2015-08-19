@@ -31,17 +31,17 @@
                              <li>
                           <%= link_to 'Projetos', projetopo_path %> 
                               </li><% end %>
-                         <% if can? :manage, Relato %>
+                      
                            <li>
                             <%= link_to 'Relatórios', relatoss_path %>
                               </li>
-                      <% end %><% if can? :manage, @Application %> 
+                  <% if can? :read, @Application %> 
                     
                                 <li>
                             <%= link_to 'Consultores', sign_up_path %>
-                              </li>
+                              </li><% end %>
             </ul></div>          
-<% end %>
+
       
     <div style="float: right; margin-top: 30px; margin-right: 20px">
      <% if current_user %>

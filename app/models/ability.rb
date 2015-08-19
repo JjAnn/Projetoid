@@ -38,7 +38,7 @@ class Ability
      if user.role == "normal"
      can :read, Relato ,  :user_id => user.id 
      can :manage, Relato,  :user_id => user.id 
-     can :manage, Conditional,  :user_id => user.id 
+     can :read, Conditional,  :user_id => user.id 
      can :manage, Conditional,  :user_id => user.id 
     
 
